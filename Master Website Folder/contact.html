@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us | Hardex India</title>
+  <meta name="description" content="Get in touch with Hardex India for technical consultation, product samples, dealer inquiries, or bulk pricing.">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<div id="shared-nav"></div>
+
+<div class="page-hero">
+  <h1>Get in <em>Touch</em></h1>
+  <p>Technical consultation, product samples, dealer inquiries, or bulk pricing — we're here to help.</p>
+</div>
+
+<div class="breadcrumb">
+  <a href="index.html">Home</a> <span>/</span> Contact
+</div>
+
+<div class="page-section">
+  <div class="contact-grid">
+    <div>
+      <div class="contact-info-item">
+        <h3>Email</h3>
+        <p><a href="mailto:info@hardexindia.com" style="color:var(--teal)">info@hardexindia.com</a></p>
+      </div>
+      <div class="contact-info-item">
+        <h3>Phone / WhatsApp</h3>
+        <p><a href="tel:+919656866699" style="color:var(--teal);font-weight:600">+91 96568 66699</a></p>
+      </div>
+      <div class="contact-info-item">
+        <h3>Head Office</h3>
+        <p>Hardex India Private Limited<br>Kochi, Kerala, India</p>
+      </div>
+      <div class="contact-info-item">
+        <h3>Working Hours</h3>
+        <p>Monday – Saturday: 9:00 AM – 6:00 PM IST<br>Sunday: Closed</p>
+      </div>
+      <div class="contact-info-item">
+        <h3>Find a Dealer</h3>
+        <p>Looking for a dealer near you?<br>
+          <a href="dealers.html" style="color:var(--teal);font-weight:600">View Dealer Network →</a>
+        </p>
+      </div>
+    </div>
+
+    <div>
+      <!--
+        ════════════════════════════════════════════════════
+        FORMSPREE SETUP — 3 STEPS:
+        1. Go to https://formspree.io and create a free account
+        2. Click "New Form", name it "Hardex Contact"
+        3. Copy your Form ID (e.g. xrgjakqp) and replace
+           YOUR_FORMSPREE_ID below in the form action URL
+        ════════════════════════════════════════════════════
+      -->
+      <form
+        id="contactForm"
+        class="contact-form-page"
+        action="https://formspree.io/f/YOUR_FORMSPREE_ID"
+        method="POST"
+      >
+        <!-- Formspree honeypot — prevents spam -->
+        <input type="text" name="_gotcha" style="display:none">
+        <!-- Redirect after successful submission -->
+        <input type="hidden" name="_next" value="thank-you.html">
+        <!-- Custom subject line in email inbox -->
+        <input type="hidden" name="_subject" value="New Inquiry — Hardex India Website">
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+          <input type="text" name="name" placeholder="Your Name *" required>
+          <input type="text" name="company" placeholder="Company Name">
+        </div>
+        <input type="email" name="email" placeholder="Email Address *" required>
+        <input type="tel" name="phone" placeholder="Phone Number">
+        <select name="inquiry_type">
+          <option value="" disabled selected>Inquiry Type</option>
+          <option>Technical Consultation</option>
+          <option>Product Samples</option>
+          <option>Bulk Pricing</option>
+          <option>Dealer / Distributor Inquiry</option>
+          <option>General Inquiry</option>
+        </select>
+        <select name="product_category">
+          <option value="" disabled selected>Product Category (Optional)</option>
+          <option>Waterproofing</option>
+          <option>Flooring Systems</option>
+          <option>Primers</option>
+          <option>Sealers</option>
+          <option>Adhesives</option>
+          <option>Other</option>
+        </select>
+        <textarea name="message" placeholder="Tell us about your project or inquiry *" required></textarea>
+        <button type="submit" class="btn-submit" id="submitBtn" style="border:none;width:100%;">Send Message →</button>
+        <p id="form-status" style="display:none;margin-top:12px;text-align:center;font-size:14px;"></p>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="cta-banner">
+  <h2>Prefer a Quick Call?</h2>
+  <p>Our technical team is available Monday through Saturday for consultations.</p>
+  <a href="tel:+919656866699" class="btn-primary">Call +91 96568 66699 →</a>
+</div>
+
+<div id="shared-footer"></div>
+
+<script src="components/shared-nav.js"></script>
+<script>
+(function () {
+  'use strict';
+
+  var form   = document.getElementById('contactForm');
+  var btn    = document.getElementById('submitBtn');
+  var status = document.getElementById('form-status');
+
+  if (!form) return;
+
+  // ── Check if Formspree ID has been configured ─────────────────
+  var action = form.getAttribute('action') || '';
+  var configured = action.indexOf('YOUR_FORMSPREE_ID') === -1;
+
+  form.addEventListener('submit', function (e) {
+
+    // If not yet configured — show friendly warning instead of a broken 404
+    if (!configured) {
+      e.preventDefault();
+      status.style.display = 'block';
+      status.style.color   = '#c0392b';
+      status.innerHTML     = '⚠️ Contact form not yet connected.<br>Please call us at <a href="tel:+919656866699" style="color:#00a99d;font-weight:700">+91 96568 66699</a> or email <a href="mailto:info@hardexindia.com" style="color:#00a99d">info@hardexindia.com</a>';
+      return;
+    }
+
+    // Formspree AJAX submission (stays on same page, no redirect needed)
+    e.preventDefault();
+    btn.textContent = 'Sending…';
+    btn.disabled = true;
+    status.style.display = 'none';
+
+    var data = new FormData(form);
+
+    fetch(action, {
+      method:  'POST',
+      body:    data,
+      headers: { 'Accept': 'application/json' }
+    })
+    .then(function (res) {
+      if (res.ok) {
+        btn.textContent      = '✓ Message Sent!';
+        btn.style.background = '#4CAF50';
+        status.style.display = 'block';
+        status.style.color   = '#2d6a4f';
+        status.textContent   = 'Thanks! We\'ll get back to you within one business day.';
+        form.reset();
+        setTimeout(function () {
+          btn.textContent      = 'Send Message →';
+          btn.style.background = '';
+          btn.disabled         = false;
+          status.style.display = 'none';
+        }, 5000);
+      } else {
+        throw new Error('Server error');
+      }
+    })
+    .catch(function () {
+      btn.textContent = 'Send Message →';
+      btn.disabled    = false;
+      status.style.display = 'block';
+      status.style.color   = '#c0392b';
+      status.innerHTML     = 'Something went wrong. Please call us at <a href="tel:+919656866699" style="color:#00a99d">+91 96568 66699</a>.';
+    });
+  });
+
+})();
+</script>
+
+</body>
+</html>

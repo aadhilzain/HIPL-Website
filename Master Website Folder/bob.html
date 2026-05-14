@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>Bob | Hardex India</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root { --navy:#0d1b26; --navy2:#0a1520; --teal:#00a99d; --teal2:#00c4b8; --yellow:#f0c330; --border:rgba(255,255,255,0.08); --font-disp:'Bebas Neue',sans-serif; --font-body:'DM Sans',sans-serif; --font-mono:'DM Mono',monospace; }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html,body{height:100%;overflow:hidden;background:var(--navy2);font-family:var(--font-body);color:#fff;-webkit-font-smoothing:antialiased;}
+    .page{height:100vh;display:flex;flex-direction:column;max-width:760px;margin:0 auto;}
+    .header{display:flex;align-items:center;gap:14px;padding:16px 20px;border-bottom:1px solid var(--border);background:var(--navy);flex-shrink:0;}
+    .bob-avatar{width:44px;height:44px;background:#f0c330;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;position:relative;}
+    .bob-online{position:absolute;bottom:1px;right:1px;width:11px;height:11px;background:#4ade80;border-radius:50%;border:2px solid var(--navy);}
+    .bob-info{flex:1;min-width:0;}
+    .bob-name{font-family:var(--font-disp);font-size:20px;letter-spacing:.05em;color:#fff;line-height:1;}
+    .bob-role{font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);margin-top:3px;}
+    .header-logo{font-family:var(--font-disp);font-size:16px;letter-spacing:.04em;color:rgba(255,255,255,.3);text-decoration:none;}
+    .header-logo em{font-style:normal;color:var(--teal);opacity:.6;}
+    .messages{flex:1;overflow-y:auto;padding:24px 20px;display:flex;flex-direction:column;gap:16px;scroll-behavior:smooth;}
+    .messages::-webkit-scrollbar{width:4px;} .messages::-webkit-scrollbar-thumb{background:rgba(255,255,255,.1);border-radius:4px;}
+    .msg{display:flex;gap:10px;align-items:flex-end;animation:fadeUp .25s ease;}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+    .msg.bob{flex-direction:row;} .msg.user{flex-direction:row-reverse;}
+    .msg-avatar{width:32px;height:32px;background:linear-gradient(135deg,var(--teal),#005f59);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;}
+    .bubble{max-width:72%;padding:12px 16px;border-radius:18px;font-size:14px;line-height:1.65;}
+    .msg.bob .bubble{background:rgba(255,255,255,.06);border:1px solid var(--border);border-bottom-left-radius:4px;color:rgba(255,255,255,.88);}
+    .msg.user .bubble{background:var(--teal);color:var(--navy);font-weight:500;border-bottom-right-radius:4px;}
+    .typing-dots{background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:18px;border-bottom-left-radius:4px;padding:14px 18px;display:flex;gap:5px;align-items:center;}
+    .typing-dots span{width:7px;height:7px;background:rgba(255,255,255,.3);border-radius:50%;animation:bounce 1.2s infinite;}
+    .typing-dots span:nth-child(2){animation-delay:.2s;} .typing-dots span:nth-child(3){animation-delay:.4s;}
+    @keyframes bounce{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-6px)}}
+    .chips{display:flex;flex-wrap:wrap;gap:8px;padding:0 20px 12px;}
+    .chip{padding:8px 14px;background:rgba(255,255,255,.05);border:1px solid rgba(0,169,157,.3);border-radius:100px;font-size:13px;color:var(--teal);cursor:pointer;transition:all .15s;font-family:var(--font-body);}
+    .chip:hover{background:rgba(0,169,157,.12);border-color:var(--teal);color:#fff;}
+    .lead-form{background:rgba(240,195,48,.06);border:1px solid rgba(240,195,48,.2);border-radius:12px;padding:16px;margin-top:8px;}
+    .lead-title{font-family:var(--font-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--yellow);margin-bottom:12px;}
+    .lead-field{width:100%;padding:10px 14px;background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:8px;color:#fff;font-family:var(--font-body);font-size:14px;outline:none;margin-bottom:8px;transition:border-color .15s;}
+    .lead-field:focus{border-color:var(--yellow);} .lead-field::placeholder{color:rgba(255,255,255,.3);}
+    .lead-submit{width:100%;padding:12px;background:var(--yellow);color:var(--navy);border:none;border-radius:8px;font-family:var(--font-body);font-size:14px;font-weight:700;cursor:pointer;transition:background .15s;}
+    .lead-submit:hover{background:#f5ce3a;} .lead-submit:disabled{opacity:.6;cursor:not-allowed;}
+    .input-area{padding:12px 16px;border-top:1px solid var(--border);background:var(--navy);display:flex;gap:10px;align-items:flex-end;flex-shrink:0;}
+    .input-wrap{flex:1;}
+    textarea{width:100%;background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:24px;padding:12px 18px;color:#fff;font-family:var(--font-body);font-size:14px;resize:none;outline:none;max-height:120px;min-height:48px;line-height:1.5;transition:border-color .15s;scrollbar-width:none;}
+    textarea::-webkit-scrollbar{display:none;} textarea:focus{border-color:var(--teal);} textarea::placeholder{color:rgba(255,255,255,.3);}
+    .send-btn{width:46px;height:46px;background:var(--teal);border:none;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .15s,transform .1s;}
+    .send-btn:hover{background:var(--teal2);transform:scale(1.05);} .send-btn:disabled{opacity:.4;cursor:not-allowed;transform:none;}
+    .send-btn svg{fill:var(--navy);}
+    .config-error{background:rgba(239,68,68,.15);border:1px solid rgba(239,68,68,.3);border-radius:8px;padding:12px 16px;margin:16px;font-size:13px;color:#fca5a5;font-family:var(--font-mono);display:none;}
+    @media(max-width:500px){.bubble{max-width:85%;}.header{padding:12px 16px;}}
+  </style>
+</head>
+<body>
+<div class="page">
+  <div class="header">
+    <div class="bob-avatar">
+      <svg width="28" height="28" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="20" cy="22" rx="13" ry="8" fill="#e6a800"/>
+        <path d="M13 22 Q20 9 27 22" fill="#f0c330" stroke="#e6a800" stroke-width="1.5"/>
+        <rect x="5" y="21" width="30" height="4" rx="2" fill="#cc9400"/>
+        <ellipse cx="20" cy="30" rx="7.5" ry="5.5" fill="#FDDBB4"/>
+        <circle cx="17.5" cy="29.5" r="1.2" fill="#333"/>
+        <circle cx="22.5" cy="29.5" r="1.2" fill="#333"/>
+        <path d="M17.5 32 Q20 34 22.5 32" stroke="#333" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+      </svg>
+      <div class="bob-online"></div>
+    </div>
+    <div class="bob-info">
+      <div class="bob-name">Bob the Builder</div>
+      <div class="bob-role">Construction Chemical Expert · Online now</div>
+    </div>
+    <a href="index.html" class="header-logo"><em>hard</em>ex</a>
+  </div>
+  <div class="config-error" id="configError">
+    ⚠ Groq API key not set or invalid. Keys must start with <strong>gsk_</strong> — get one free at console.groq.com
+  </div>
+  <div class="messages" id="messages"></div>
+  <div class="chips" id="chips">
+    <button class="chip" onclick="sendChip(this)">🏠 Terrace leaking</button>
+    <button class="chip" onclick="sendChip(this)">🏭 Factory floor</button>
+    <button class="chip" onclick="sendChip(this)">🏗️ Basement damp</button>
+    <button class="chip" onclick="sendChip(this)">🧱 Concrete repair</button>
+    <button class="chip" onclick="sendChip(this)">💧 Water tank</button>
+    <button class="chip" onclick="sendChip(this)">🔧 Not sure yet</button>
+  </div>
+  <div class="input-area">
+    <div class="input-wrap">
+      <textarea id="userInput" placeholder="Describe your problem…" rows="1"
+        onkeydown="handleKey(event)" oninput="autoResize(this)"></textarea>
+    </div>
+    <button class="send-btn" id="sendBtn" onclick="sendMessage()">
+      <svg width="18" height="18" viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+    </button>
+  </div>
+</div>
+
+<script>
+// ── CONFIG ───────────────────────────────────────────────────────
+var CONFIG = {
+  GROQ_API_KEY:      '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',
+  SLACK_WEBHOOK_URL: 'YOUR_SLACK_WEBHOOK_URL',
+  COMPANY_PHONE:     '+91 96568 66699',
+  COMPANY_EMAIL:     'info@hardexindia.com'
+};
+
+// ── BOB SYSTEM PROMPT ────────────────────────────────────────────
+var BOB_SYSTEM = [
+  "You are Bob, Hardex India's straight-talking construction problem solver.",
+  "Help contractors, builders, homeowners and engineers find the right chemical solution.\n",
+  "PERSONALITY:",
+  "- Direct, confident, cheeky. You're a builder who knows his stuff.",
+  "- Never say 'Great question!' 'Certainly!' or 'Of course!' — just answer.",
+  "- 'What's cracking?' is your thing. Keep messages short, 2-3 sentences max.\n",
+  "PRODUCTS:\n",
+  "WATERPROOFING:",
+  "- COOLCOAT: Terrace/roof. Heat reflection -5-8C. 1.5-2kg/m2. 10yr. ~Rs330/m2.",
+  "- PU200: Premium PU membrane. Terraces, podiums.",
+  "- CM200: Flexible cementitious. Bathrooms, wet areas.",
+  "- CM300: Two-component. Basements, foundations.",
+  "- CM100: Rigid cementitious. Water tanks, pools.",
+  "- INJ PU: Active leak injection. Emergency fix.",
+  "- DP100: Rising damp. Ground floor walls.",
+  "- SBR-50 / HC710: Bonding primer. Goes under EVERYTHING.\n",
+  "FLOORING:",
+  "- SL1000: Self-leveling epoxy. Clean rooms, showrooms.",
+  "- EP100: Epoxy primer. Base for all floor systems.",
+  "- MTP100: Moisture-tolerant primer. Damp concrete.",
+  "- ERC300: Heavy-duty epoxy. Factories, forklifts.",
+  "- ERC200: Light industrial. Warehouses.",
+  "- PU600: Food-grade PU flooring.",
+  "- NMX20: Coloured dry shake hardener. Cheap dustproofing.\n",
+  "REPAIR:",
+  "- FASTFIX RM40: Structural mortar. Spalling, exposed rebar.",
+  "- FASTFIX GP2: Non-shrink grout. Machinery foundations.",
+  "- FASTFIX WP100: Hydraulic cement. Emergency leak plug.",
+  "- FASTFIX CA500/CA700: Chemical anchors.\n",
+  "DIAGNOSIS:",
+  "- Terrace leaking → COOLCOAT system (SBR-50 + CoolCoat)",
+  "- Bathroom seeping → CM200",
+  "- Basement wet → CM300, INJ PU if active",
+  "- Water tank → CM100",
+  "- Factory floor → ERC300 + EP100",
+  "- Concrete spalling → FASTFIX RM40 + SBR-50",
+  "- Active gushing water → FASTFIX WP100 first\n",
+  "COSTS: Terrace Rs280-380/m2. Epoxy floor Rs150-300/m2. Bathroom Rs180-250/m2.\n",
+  "FLOW: Ask problem → diagnose (1-2 questions: surface, area, location) → recommend with cost → offer callback.\n",
+  "LEAD CAPTURE: When user agrees to be contacted, output exactly this on its own line: LEAD_CAPTURE_NEEDED\n",
+  "Hardex: Kochi Kerala. Pan-India. Phone: " + CONFIG.COMPANY_PHONE
+].join('\n');
+
+// ── STATE ────────────────────────────────────────────────────────
+var conversation = [];
+var leadCaptured = false;
+var chipsUsed    = false;
+var isTyping     = false;
+
+// ── INIT ─────────────────────────────────────────────────────────
+window.addEventListener('DOMContentLoaded', function () {
+  if (CONFIG.GROQ_API_KEY === 'YOUR_GROQ_API_KEY' || CONFIG.GROQ_API_KEY.indexOf('gsk_') !== 0) {
+    document.getElementById('configError').style.display = 'block';
+  }
+  setTimeout(function () {
+    addBobMessage("What's cracking? 🧱\n\nI'm Bob — tell me what's giving you grief on site and I'll tell you exactly how to fix it.");
+  }, 400);
+});
+
+// Receive prefill from parent page CTA buttons via hxAskBob()
+window.addEventListener('message', function (e) {
+  if (e.data && e.data.type === 'hx-prefill' && e.data.text) {
+    var input = document.getElementById('userInput');
+    if (!input) return;
+    hideChips();
+    input.value = '';
+    autoResize(input);
+    sendUserMessage(e.data.text);
+  }
+});
+
+// ── MESSAGING ────────────────────────────────────────────────────
+function sendChip(btn) {
+  var text = btn.textContent.replace(/^[^\s]+\s/, '').trim();
+  hideChips();
+  sendUserMessage(text);
+}
+
+function handleKey(e) {
+  if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage(); }
+}
+
+function sendMessage() {
+  var input = document.getElementById('userInput');
+  var text  = input.value.trim();
+  if (!text || isTyping) return;
+  hideChips();
+  input.value = '';
+  autoResize(input);
+  sendUserMessage(text);
+}
+
+function sendUserMessage(text) {
+  addUserMessage(text);
+  conversation.push({ role: 'user', content: text });
+  getBobResponse();
+}
+
+function hideChips() {
+  if (!chipsUsed) {
+    document.getElementById('chips').style.display = 'none';
+    chipsUsed = true;
+  }
+}
+
+// ── API CALL ─────────────────────────────────────────────────────
+function getBobResponse() {
+  if (CONFIG.GROQ_API_KEY === 'YOUR_GROQ_API_KEY' || CONFIG.GROQ_API_KEY.indexOf('gsk_') !== 0) {
+    addBobMessage("Groq API key not set or wrong format. Keys start with gsk_ — get one free at console.groq.com");
+    return;
+  }
+
+  isTyping = true;
+  setInputEnabled(false);
+  var typingEl = showTyping();
+
+  fetch('https://api.groq.com/openai/v1/chat/completions', {
+    method: 'POST',
+    headers: {
+      'Content-Type':  'application/json',
+      'Authorization': 'Bearer ' + CONFIG.GROQ_API_KEY
+    },
+    body: JSON.stringify({
+      model:      'llama-3.3-70b-versatile',
+      max_tokens: 600,
+      messages:   [{ role: 'system', content: BOB_SYSTEM }].concat(conversation)
+    })
+  })
+  .then(function (r) { return r.json(); })
+  .then(function (data) {
+    removeTyping(typingEl);
+    isTyping = false;
+    setInputEnabled(true);
+
+    var text = data.choices && data.choices[0] ? data.choices[0].message.content : '';
+    if (!text) { addBobMessage("Something went wrong. Call us: " + CONFIG.COMPANY_PHONE); return; }
+
+    if (text.indexOf('LEAD_CAPTURE_NEEDED') !== -1) {
+      text = text.replace('LEAD_CAPTURE_NEEDED', '').trim();
+      if (text) addBobMessage(text);
+      conversation.push({ role: 'assistant', content: text || '' });
+      setTimeout(showLeadForm, 400);
+    } else {
+      addBobMessage(text);
+      conversation.push({ role: 'assistant', content: text });
+    }
+    scrollToBottom();
+  })
+  .catch(function (err) {
+    removeTyping(typingEl);
+    isTyping = false;
+    setInputEnabled(true);
+    addBobMessage("Network hiccup. Try again or call: " + CONFIG.COMPANY_PHONE);
+    console.error(err);
+  });
+}
+
+// ── LEAD CAPTURE ─────────────────────────────────────────────────
+function showLeadForm() {
+  if (leadCaptured) return;
+  var msgs = document.getElementById('messages');
+  var div  = document.createElement('div');
+  div.className = 'msg bob';
+  div.innerHTML =
+    '<div class="msg-avatar">🧱</div>' +
+    '<div class="bubble">' +
+      '<div class="lead-form" id="leadForm">' +
+        '<div class="lead-title">Quick details — Hardex will call you</div>' +
+        '<input class="lead-field" id="leadName"     placeholder="Your name *"     type="text">' +
+        '<input class="lead-field" id="leadPhone"    placeholder="Phone number *"  type="tel">' +
+        '<input class="lead-field" id="leadLocation" placeholder="City / Location" type="text">' +
+        '<button class="lead-submit" id="leadSubmitBtn" onclick="submitLead()">Get Hardex to Call Me →</button>' +
+      '</div>' +
+    '</div>';
+  msgs.appendChild(div);
+  scrollToBottom();
+}
+
+function submitLead() {
+  var name     = document.getElementById('leadName').value.trim();
+  var phone    = document.getElementById('leadPhone').value.trim();
+  var location = document.getElementById('leadLocation').value.trim();
+  var btn      = document.getElementById('leadSubmitBtn');
+
+  if (!name || !phone) {
+    document.getElementById('leadName').style.borderColor  = name  ? '' : '#ef4444';
+    document.getElementById('leadPhone').style.borderColor = phone ? '' : '#ef4444';
+    return;
+  }
+
+  btn.disabled = true;
+  btn.textContent = 'Sending…';
+  leadCaptured = true;
+
+  var summary = conversation
+    .filter(function (m) { return m.role === 'user'; })
+    .map(function (m) { return '• ' + m.content; })
+    .join('\n');
+
+  if (CONFIG.SLACK_WEBHOOK_URL !== 'YOUR_SLACK_WEBHOOK_URL') {
+    fetch(CONFIG.SLACK_WEBHOOK_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        text: '🧱 *New Bob Lead*',
+        blocks: [
+          { type: 'header', text: { type: 'plain_text', text: '🧱 New Lead from Bob — hardex.me', emoji: true } },
+          {
+            type: 'section',
+            fields: [
+              { type: 'mrkdwn', text: '*Name:*\n' + name },
+              { type: 'mrkdwn', text: '*Phone:*\n' + phone },
+              { type: 'mrkdwn', text: '*Location:*\n' + (location || 'Not provided') },
+              { type: 'mrkdwn', text: '*Time:*\n' + new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }) }
+            ]
+          },
+          { type: 'section', text: { type: 'mrkdwn', text: '*What they said:*\n' + (summary || 'No messages') } },
+          {
+            type: 'actions',
+            elements: [{
+              type: 'button',
+              text: { type: 'plain_text', text: '📞 Call ' + phone },
+              url: 'tel:' + phone.replace(/\s/g, ''),
+              style: 'primary'
+            }]
+          }
+        ]
+      })
+    }).catch(function (e) { console.warn('Slack failed:', e); });
+  }
+
+  setTimeout(function () {
+    var form = document.getElementById('leadForm');
+    if (form) {
+      form.innerHTML =
+        '<div style="text-align:center;padding:8px 0;">' +
+        '<div style="font-size:28px;margin-bottom:8px;">✓</div>' +
+        '<div style="font-family:var(--font-disp);font-size:18px;color:var(--yellow);letter-spacing:.05em;">Done, ' + name.split(' ')[0] + '</div>' +
+        '<div style="font-size:13px;color:rgba(255,255,255,0.6);margin-top:6px;">Hardex will call you at ' + phone + '</div>' +
+        '</div>';
+    }
+    conversation.push({ role: 'user', content: '[Lead: ' + name + ', ' + phone + ', ' + location + ']' });
+    setTimeout(function () {
+      addBobMessage("Sorted. Someone from Hardex will give you a ring shortly.\n\nAnything else while you wait?");
+      scrollToBottom();
+    }, 600);
+  }, 800);
+}
+
+// ── DOM HELPERS ──────────────────────────────────────────────────
+function addBobMessage(text) {
+  var msgs = document.getElementById('messages');
+  var div  = document.createElement('div');
+  div.className = 'msg bob';
+  div.innerHTML = '<div class="msg-avatar">🧱</div><div class="bubble">' + fmt(text) + '</div>';
+  msgs.appendChild(div);
+  scrollToBottom();
+}
+
+function addUserMessage(text) {
+  var msgs = document.getElementById('messages');
+  var div  = document.createElement('div');
+  div.className = 'msg user';
+  div.innerHTML = '<div class="bubble">' + esc(text) + '</div>';
+  msgs.appendChild(div);
+  scrollToBottom();
+}
+
+function showTyping() {
+  var msgs = document.getElementById('messages');
+  var div  = document.createElement('div');
+  div.className = 'msg bob';
+  div.innerHTML = '<div class="msg-avatar">🧱</div><div class="typing-dots"><span></span><span></span><span></span></div>';
+  msgs.appendChild(div);
+  scrollToBottom();
+  return div;
+}
+
+function removeTyping(el)   { if (el && el.parentNode) el.parentNode.removeChild(el); }
+function scrollToBottom()   { var m = document.getElementById('messages'); m.scrollTop = m.scrollHeight; }
+function setInputEnabled(v) { document.getElementById('userInput').disabled = !v; document.getElementById('sendBtn').disabled = !v; }
+function autoResize(el)     { el.style.height = 'auto'; el.style.height = Math.min(el.scrollHeight, 120) + 'px'; }
+function fmt(t) { return esc(t).replace(/\n\n/g,'</p><p style="margin-top:8px">').replace(/\n/g,'<br>').replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>'); }
+function esc(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+</script>
+</body>
+</html>

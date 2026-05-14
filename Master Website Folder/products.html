@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products | Hardex India</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .category-filter-bar { position:sticky;top:64px;background:#fff;border-bottom:2px solid #e0e0e0;z-index:100; }
+    .filter-container { max-width:1400px;margin:0 auto;display:flex;overflow-x:auto;scrollbar-width:none; }
+    .filter-container::-webkit-scrollbar { display:none; }
+    .filter-tab { padding:14px 24px;border:none;background:#fff;color:#666;font-family:'Bebas Neue',serif;font-size:13px;letter-spacing:.05em;cursor:pointer;white-space:nowrap;text-transform:uppercase;border-bottom:3px solid transparent;transition:all .2s;flex-shrink:0; }
+    .filter-tab:hover { background:#f5f5f5;color:#00a99d; }
+    .filter-tab.active { color:#00a99d;border-bottom-color:#00a99d; }
+    .products-catalog { max-width:1400px;margin:0 auto;padding:40px; }
+    .category-section { margin-bottom:50px; }
+    .category-section-title { font-family:'Bebas Neue',serif;font-size:18px;letter-spacing:.05em;color:#1a1a1a;margin-bottom:10px;padding-bottom:10px;border-bottom:2px solid #00a99d;text-transform:uppercase; }
+    .category-count { font-family:'DM Mono',monospace;font-size:11px;color:#999;margin-left:10px; }
+    .products-grid { display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:20px; }
+    .product-card { background:#fff;border:1px solid #e8e8e8;border-radius:4px;padding:20px;transition:all .25s;display:flex;flex-direction:column;text-decoration:none;color:inherit; }
+    .product-card:hover { border-color:#00a99d;box-shadow:0 4px 12px rgba(0,169,157,.15);transform:translateY(-2px); }
+    .product-icon { font-size:32px;margin-bottom:12px;display:block; }
+    .product-sub  { font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:#00a99d;margin-bottom:6px;font-weight:600; }
+    .product-name { font-family:'Bebas Neue',serif;font-size:15px;letter-spacing:.05em;color:#1a1a1a;margin-bottom:10px;line-height:1.3;text-transform:uppercase; }
+    .product-desc { font-size:12px;line-height:1.5;color:#666;margin-bottom:12px;flex-grow:1; }
+    .product-cov  { font-family:'DM Mono',monospace;font-size:10px;color:#999;margin-bottom:12px;border-top:1px solid #e8e8e8;padding-top:12px; }
+    .product-cta  { color:#00a99d;font-weight:600;font-size:11px; }
+    @media(max-width:1200px){.products-grid{grid-template-columns:repeat(3,1fr);}}
+    @media(max-width:900px) {.products-grid{grid-template-columns:repeat(2,1fr);}.products-catalog{padding:24px 16px;}}
+    @media(max-width:480px) {.products-grid{grid-template-columns:1fr;}}
+  </style>
+</head>
+<body>
+
+<div id="shared-nav"></div>
+
+<section class="products-hero">
+  <div class="products-hero-content">
+    <div class="sec-label"><div class="sl-bar"></div><span class="sl-txt">Complete Catalog</span></div>
+    <h1 class="products-hero-title">Our Product<br>Portfolio.</h1>
+    <p class="products-hero-text">150+ construction chemical formulations. Every product backed by full TDS and MSDS documentation. Manufactured in-house to export quality standards.</p>
+  </div>
+</section>
+
+<div class="category-filter-bar">
+  <div class="filter-container" id="filter-tabs"></div>
+</div>
+
+<section class="products-catalog">
+  <div id="products-grid"></div>
+</section>
+
+<div id="shared-footer"></div>
+
+<!-- products-data.js MUST load before the inline script below -->
+<script src="config/products-data.js"></script>
+<script src="components/shared-nav.js"></script>
+
+<script>
+(function () {
+  'use strict';
+
+  /* ── products-data.js uses  const PRODUCTS = [...]
+     const at top-level script scope is a global but NOT on window.
+     We reference it directly as PRODUCTS, not window.PRODUCTS.     */
+
+  if (typeof PRODUCTS === 'undefined' || !PRODUCTS.length) {
+    document.getElementById('products-grid').innerHTML =
+      '<p style="padding:60px 20px;text-align:center;color:#999;font-family:DM Sans,sans-serif;">' +
+      'Products failed to load. Check that <code>config/products-data.js</code> exists.</p>';
+    return;
+  }
+
+  /* ── Helpers ── */
+  function slug(s) { return s.toLowerCase().replace(/\s+/g,'-').replace(/[^\w-]/g,''); }
+
+  /* ── Unique sorted categories ── */
+  var cats = [];
+  PRODUCTS.forEach(function(p){ if(p.category && cats.indexOf(p.category)===-1) cats.push(p.category); });
+  cats.sort();
+
+  /* ── Build filter tabs ── */
+  var tabBar   = document.getElementById('filter-tabs');
+  var curSlug  = (new URLSearchParams(window.location.search)).get('cat') || '';
+
+  function makeTab(label, s) {
+    var btn = document.createElement('button');
+    btn.className       = 'filter-tab' + (s===curSlug ? ' active' : '');
+    btn.textContent     = label;
+    btn.dataset.s       = s;
+    btn.addEventListener('click', function(){ go(s); });
+    return btn;
+  }
+  tabBar.appendChild(makeTab('All Products', ''));
+  cats.forEach(function(c){ tabBar.appendChild(makeTab(c, slug(c))); });
+
+  /* ── Navigate ── */
+  function go(s) {
+    curSlug = s;
+    document.querySelectorAll('.filter-tab').forEach(function(b){ b.classList.toggle('active', b.dataset.s===s); });
+    render();
+    if (window.history && window.history.replaceState)
+      window.history.replaceState({}, '', s ? '?cat='+s : window.location.pathname);
+    document.getElementById('products-grid').scrollIntoView({behavior:'smooth'});
+  }
+
+  /* ── Card ── */
+  function card(p) {
+    return '<a href="product-detail.html?id='+encodeURIComponent(p.id)+'" class="product-card">'
+      + '<span class="product-icon">'+(p.icon||'🧪')+'</span>'
+      + '<div class="product-sub">'+(p.subcategory||'')+'</div>'
+      + '<h3 class="product-name">'+p.name+'</h3>'
+      + '<p class="product-desc">'+(p.shortDesc||'')+'</p>'
+      + '<div class="product-cov">Coverage: '+(p.coverage||'Contact us')+'</div>'
+      + '<span class="product-cta">View Details →</span>'
+      + '</a>';
+  }
+
+  /* ── Render ── */
+  function render() {
+    var grid = document.getElementById('products-grid');
+    var html = '';
+    if (!curSlug) {
+      cats.forEach(function(c) {
+        var items = PRODUCTS.filter(function(p){ return p.category===c; });
+        html += '<div class="category-section">'
+          + '<h2 class="category-section-title">'+c
+          + '<span class="category-count">'+items.length+' products</span></h2>'
+          + '<div class="products-grid">'+items.map(card).join('')+'</div>'
+          + '</div>';
+      });
+    } else {
+      var items = PRODUCTS.filter(function(p){ return slug(p.category)===curSlug; });
+      html = items.length
+        ? '<div class="products-grid">'+items.map(card).join('')+'</div>'
+        : '<p style="padding:40px;text-align:center;color:#999;">No products found.</p>';
+    }
+    grid.innerHTML = html;
+  }
+
+  render();
+})();
+</script>
+</body>
+</html>

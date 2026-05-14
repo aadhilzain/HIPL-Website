@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TDS Viewer | Hardex India</title>
+  <meta name="description" content="Technical Data Sheet viewer for Hardex India products.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="tds-shell">
+    <div class="tds-toolbar">
+      <div>
+        <h1>Technical Data Sheet Viewer</h1>
+        <p id="tds-caption">Load a product TDS from the downloads page.</p>
+      </div>
+      <div class="tds-toolbar-actions">
+        <button class="tds-button tds-button-primary" id="download-pdf-button" type="button" onclick="downloadPDF()">
+          Download PDF
+        </button>
+        <button class="tds-button tds-button-secondary" type="button" onclick="window.history.back()">
+          Back
+        </button>
+      </div>
+    </div>
+
+    <div id="tds-container"></div>
+  </div>
+
+  <script src="tdsData.js"></script>
+  <script>
+  (function () {
+    'use strict';
+
+    var params = new URLSearchParams(window.location.search);
+    var product = params.get('product');
+    var type = (params.get('type') || 'TDS').toUpperCase();
+    var container = document.getElementById('tds-container');
+    var caption = document.getElementById('tds-caption');
+    var downloadButton = document.getElementById('download-pdf-button');
+    var html = product && window.tdsData ? window.tdsData[product] : '';
+
+    function renderStatus(title, message) {
+      downloadButton.disabled = true;
+      downloadButton.style.opacity = '0.5';
+      downloadButton.style.cursor = 'not-allowed';
+      container.innerHTML =
+        '<div class="tds-status">' +
+          '<h2>' + title + '</h2>' +
+          '<p>' + message + '</p>' +
+        '</div>';
+    }
+
+    if (!product) {
+      caption.textContent = 'No product parameter was provided.';
+      renderStatus('TDS not found', 'Open a supported TDS from the downloads page.');
+      return;
+    }
+
+    if (type !== 'TDS') {
+      caption.textContent = 'This viewer currently serves TDS documents only.';
+      renderStatus('Document not available', 'The requested document type is not configured in this local viewer.');
+      return;
+    }
+
+    if (html) {
+      caption.textContent = 'Showing TDS for ' + product;
+      container.innerHTML = html;
+      document.title = 'TDS | ' + product + ' | Hardex India';
+      return;
+    }
+
+    caption.textContent = 'No configured TDS exists for ' + product + '.';
+    renderStatus('TDS not found', 'This product is not yet mapped in tds-msds/tdsData.js.');
+  })();
+
+  function downloadPDF() {
+    var element = document.querySelector('.tds-document');
+
+    if (!element || typeof window.html2pdf === 'undefined') {
+      return;
+    }
+
+    var product = new URLSearchParams(window.location.search).get('product') || 'tds';
+    window.html2pdf()
+      .set({
+        margin: 8,
+        filename: product + '-tds.pdf',
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 2, useCORS: true },
+        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+      })
+      .from(element)
+      .save();
+  }
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</body>
+</html>
