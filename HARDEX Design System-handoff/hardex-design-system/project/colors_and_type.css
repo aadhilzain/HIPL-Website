@@ -1,0 +1,297 @@
+/* ============================================================
+   HARDEX Design System — Core Tokens
+   "Build Harder. Last Longer." · Green Chemistry · Est. 1980
+   ============================================================ */
+
+/* --- Webfonts (Google Fonts) ----------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Hind:wght@400;500;600;700&family=Nunito:wght@800;900&display=swap');
+
+:root {
+  /* ===== COLOR TOKENS ===================================== */
+
+  /* Hero — "Green Chemistry"
+     A fresh, vivid jade-green that pops on light backgrounds.
+     This is the brand's load-bearing color: logo lockup, primary
+     buttons, key data, eco-credential callouts. */
+  --hardex-green-50:  #ECFDF3;
+  --hardex-green-100: #D2FAE3;
+  --hardex-green-200: #A6F2C7;
+  --hardex-green-300: #6FE5A6;
+  --hardex-green-400: #2FD180;   /* secondary hero */
+  --hardex-green-500: #15C172;   /* PRIMARY HERO */
+  --hardex-green-600: #0EA160;
+  --hardex-green-700: #0E7F4F;
+  --hardex-green-800: #0F5E3D;
+  --hardex-green-900: #0C3F2A;
+
+  /* Lime — high-energy accent for highlights, badges,
+     "NEW" markers, sustainability flags. Use sparingly. */
+  --hardex-lime-100: #F2FFCC;
+  --hardex-lime-300: #DCFF6E;
+  --hardex-lime-500: #C5F532;   /* accent */
+  --hardex-lime-700: #8FB81B;
+
+  /* Cement — warm-tinted neutrals.
+     Page backgrounds, cards, surface elevation. The warmth
+     keeps the system from feeling clinical. */
+  --hardex-cement-50:  #FBFAF6;   /* page bg */
+  --hardex-cement-100: #F4F2EB;   /* card alt */
+  --hardex-cement-200: #E8E4D9;   /* divider strong */
+  --hardex-cement-300: #D6D1C2;
+  --hardex-cement-400: #B5AE9C;
+  --hardex-cement-500: #8C8676;
+  --hardex-cement-600: #5F5B4F;
+  --hardex-cement-700: #3D3B33;
+  --hardex-cement-800: #24231F;
+  --hardex-cement-900: #14130F;   /* ink */
+
+  /* Signal — high-vis safety palette used for status,
+     warnings, hazard tags on datasheets, PPE callouts. */
+  --hardex-solar:   #FFC529;     /* caution / amber */
+  --hardex-solar-soft: #FFF2C9;
+  --hardex-coral:   #FF5A45;     /* error / hot */
+  --hardex-coral-soft: #FFE1DB;
+  --hardex-sky:     #2BB0FF;     /* info / waterproofing cue */
+  --hardex-sky-soft: #DCF1FF;
+
+  /* True white / black — used sparingly; prefer the cement
+     and green ramps to keep warmth. */
+  --hardex-white:   #FFFFFF;
+  --hardex-black:   #0A0A08;
+
+  /* ===== SEMANTIC COLOR VARS ============================= */
+
+  /* Foreground (text & icons) */
+  --fg-1: var(--hardex-cement-900);   /* primary text */
+  --fg-2: var(--hardex-cement-700);   /* secondary text / labels */
+  --fg-3: var(--hardex-cement-500);   /* tertiary / captions */
+  --fg-mute: var(--hardex-cement-400);/* disabled / placeholder */
+  --fg-inverse: var(--hardex-white);  /* on dark/green */
+  --fg-brand: var(--hardex-green-700);/* brand-colored text */
+
+  /* Background (surfaces) */
+  --bg-0: var(--hardex-white);        /* base canvas */
+  --bg-1: var(--hardex-cement-50);    /* app background */
+  --bg-2: var(--hardex-cement-100);   /* raised card / panel */
+  --bg-3: var(--hardex-cement-200);   /* sunken / input */
+  --bg-brand: var(--hardex-green-500);
+  --bg-brand-soft: var(--hardex-green-50);
+  --bg-accent: var(--hardex-lime-500);
+  --bg-ink: var(--hardex-cement-900); /* dark hero / footer */
+
+  /* Borders */
+  --border-1: var(--hardex-cement-200);
+  --border-2: var(--hardex-cement-300);
+  --border-strong: var(--hardex-cement-700);
+  --border-brand: var(--hardex-green-500);
+
+  /* Status */
+  --status-success: var(--hardex-green-500);
+  --status-warning: var(--hardex-solar);
+  --status-danger:  var(--hardex-coral);
+  --status-info:    var(--hardex-sky);
+
+  /* ===== TYPE TOKENS ===================================== */
+
+  /* Font families
+     Display — Bricolage Grotesque: industrial-modern w/ optical sizing.
+     Body    — Manrope: clean, slightly geometric, legible at small sizes.
+     Mono    — JetBrains Mono: technical data, formulation codes, TDS.
+     Devanagari — Hind: matches Manrope weight for Hindi co-headlines. */
+  --font-display: 'Bricolage Grotesque', 'Manrope', system-ui, sans-serif;
+  --font-body:    'Manrope', system-ui, sans-serif;
+  --font-mono:    'JetBrains Mono', ui-monospace, monospace;
+  --font-deva:    'Hind', 'Manrope', sans-serif;
+  --font-wordmark:'Nunito', 'Manrope', system-ui, sans-serif;   /* logo wordmark only */
+
+  /* Weights */
+  --w-regular: 400;
+  --w-medium:  500;
+  --w-semibold:600;
+  --w-bold:    700;
+  --w-black:   800;
+
+  /* Type scale (modular, base 16) */
+  --t-xs:   12px;
+  --t-sm:   14px;
+  --t-base: 16px;
+  --t-md:   18px;
+  --t-lg:   20px;
+  --t-xl:   24px;
+  --t-2xl:  30px;
+  --t-3xl:  38px;
+  --t-4xl:  48px;
+  --t-5xl:  64px;
+  --t-6xl:  88px;
+  --t-display: clamp(56px, 9vw, 120px);
+
+  --lh-tight: 1.02;
+  --lh-snug:  1.15;
+  --lh-base:  1.5;
+  --lh-loose: 1.65;
+
+  --ls-tight: -0.03em;
+  --ls-snug:  -0.015em;
+  --ls-base:  0em;
+  --ls-wide:  0.08em;
+  --ls-ext:   0.14em;   /* uppercase eyebrows */
+
+  /* ===== SPACING & RADIUS =============================== */
+  --s-0:  0;
+  --s-1:  4px;
+  --s-2:  8px;
+  --s-3:  12px;
+  --s-4:  16px;
+  --s-5:  24px;
+  --s-6:  32px;
+  --s-7:  48px;
+  --s-8:  64px;
+  --s-9:  96px;
+  --s-10: 128px;
+
+  --r-none: 0;
+  --r-xs:   4px;
+  --r-sm:   8px;
+  --r-md:   12px;
+  --r-lg:   18px;
+  --r-xl:   28px;
+  --r-2xl:  40px;
+  --r-pill: 999px;
+
+  /* ===== ELEVATION ===================================== */
+  /* Soft, warm shadows — no pure black; cement-tinted. */
+  --shadow-xs: 0 1px 2px rgba(20, 19, 15, 0.04);
+  --shadow-sm: 0 2px 6px rgba(20, 19, 15, 0.06), 0 1px 2px rgba(20, 19, 15, 0.04);
+  --shadow-md: 0 6px 18px rgba(20, 19, 15, 0.07), 0 2px 6px rgba(20, 19, 15, 0.04);
+  --shadow-lg: 0 18px 36px rgba(20, 19, 15, 0.08), 0 4px 10px rgba(20, 19, 15, 0.05);
+  --shadow-xl: 0 32px 64px rgba(20, 19, 15, 0.12), 0 8px 16px rgba(20, 19, 15, 0.06);
+  --shadow-glow: 0 12px 36px rgba(21, 193, 114, 0.28);   /* hero green glow */
+  --shadow-inset: inset 0 1px 0 rgba(255,255,255,0.6), inset 0 -1px 0 rgba(20,19,15,0.05);
+
+  /* ===== MOTION ======================================== */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);   /* primary easing — soft, confident */
+  --ease-in:  cubic-bezier(0.5, 0, 0.75, 0);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --dur-fast: 140ms;
+  --dur-base: 220ms;
+  --dur-slow: 420ms;
+}
+
+/* ===== SEMANTIC TYPE CLASSES =========================== */
+
+.t-eyebrow {
+  font-family: var(--font-body);
+  font-weight: var(--w-semibold);
+  font-size: var(--t-xs);
+  letter-spacing: var(--ls-ext);
+  text-transform: uppercase;
+  color: var(--fg-2);
+}
+
+.t-display {
+  font-family: var(--font-display);
+  font-weight: var(--w-bold);
+  font-size: var(--t-display);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-tight);
+  color: var(--fg-1);
+  text-wrap: balance;
+}
+
+.t-h1 {
+  font-family: var(--font-display);
+  font-weight: var(--w-bold);
+  font-size: var(--t-5xl);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-tight);
+  color: var(--fg-1);
+  text-wrap: balance;
+}
+
+.t-h2 {
+  font-family: var(--font-display);
+  font-weight: var(--w-bold);
+  font-size: var(--t-4xl);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--ls-tight);
+  color: var(--fg-1);
+  text-wrap: balance;
+}
+
+.t-h3 {
+  font-family: var(--font-display);
+  font-weight: var(--w-semibold);
+  font-size: var(--t-2xl);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--ls-snug);
+  color: var(--fg-1);
+}
+
+.t-h4 {
+  font-family: var(--font-display);
+  font-weight: var(--w-semibold);
+  font-size: var(--t-xl);
+  line-height: var(--lh-snug);
+  color: var(--fg-1);
+}
+
+.t-lead {
+  font-family: var(--font-body);
+  font-weight: var(--w-regular);
+  font-size: var(--t-lg);
+  line-height: var(--lh-loose);
+  color: var(--fg-2);
+  text-wrap: pretty;
+}
+
+.t-body {
+  font-family: var(--font-body);
+  font-weight: var(--w-regular);
+  font-size: var(--t-base);
+  line-height: var(--lh-base);
+  color: var(--fg-1);
+  text-wrap: pretty;
+}
+
+.t-small {
+  font-family: var(--font-body);
+  font-weight: var(--w-regular);
+  font-size: var(--t-sm);
+  line-height: var(--lh-base);
+  color: var(--fg-2);
+}
+
+.t-caption {
+  font-family: var(--font-body);
+  font-weight: var(--w-medium);
+  font-size: var(--t-xs);
+  line-height: var(--lh-base);
+  color: var(--fg-3);
+}
+
+.t-mono {
+  font-family: var(--font-mono);
+  font-weight: var(--w-medium);
+  font-size: var(--t-sm);
+  letter-spacing: 0.01em;
+  color: var(--fg-1);
+}
+
+.t-spec {
+  font-family: var(--font-mono);
+  font-weight: var(--w-medium);
+  font-size: var(--t-xs);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--fg-2);
+}
+
+.t-deva {
+  font-family: var(--font-deva);
+  font-weight: var(--w-semibold);
+}
+
+/* Quick helpers used across UI kits */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+body { font-family: var(--font-body); color: var(--fg-1); background: var(--bg-1); margin: 0; }

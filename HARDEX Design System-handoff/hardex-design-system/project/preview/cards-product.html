@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Product cards</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { background: var(--bg-1); padding: 20px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+  .card { background: var(--bg-0); border-radius: var(--r-md); padding: 18px; box-shadow: var(--shadow-sm); display: flex; flex-direction: column; gap: 12px; }
+  .cover { aspect-ratio: 16/9; border-radius: var(--r-sm); position: relative; overflow: hidden; }
+  .cover.wp { background: linear-gradient(140deg, var(--hardex-green-400), var(--hardex-green-700)); }
+  .cover.fh { background: linear-gradient(140deg, var(--hardex-cement-400), var(--hardex-cement-700)); }
+  .cover.ep { background: linear-gradient(140deg, var(--hardex-lime-500), var(--hardex-green-600)); }
+  .cover::after { content: ''; position: absolute; right: -20px; top: -20px; width: 80px; height: 80px; border-radius: 999px; background: rgba(255,255,255,.18); }
+  .cover::before { content: ''; position: absolute; right: 24px; top: 22px; width: 14px; height: 14px; border-radius: 999px; background: rgba(255,255,255,.55); }
+  .cover-tag { position: absolute; top: 12px; left: 12px; padding: 4px 8px; border-radius: 4px; background: rgba(255,255,255,.95); color: var(--hardex-cement-900); font: var(--w-semibold) 10px/1 var(--font-mono); letter-spacing: .08em; }
+  .cover-tag.new { background: var(--hardex-lime-500); color: var(--hardex-green-900); }
+
+  .eyebrow { display: flex; align-items: center; gap: 8px; }
+  .eyebrow .fam { font: var(--w-semibold) 10px/1 var(--font-body); letter-spacing: .14em; text-transform: uppercase; color: var(--fg-3); }
+  .eyebrow .code { font: var(--w-semibold) 10px/1 var(--font-mono); color: var(--fg-1); padding: 3px 6px; background: var(--hardex-cement-100); border-radius: 4px; }
+
+  .name { font-family: var(--font-display); font-weight: 800; font-size: 28px; line-height: 1; letter-spacing: -0.035em; color: var(--fg-1); text-transform: uppercase; }
+  .name .super { font-size: 12px; vertical-align: super; font-weight: 600; color: var(--fg-3); margin-left: 4px; letter-spacing: 0; text-transform: none; }
+  .desc { font: var(--w-medium) 13px/1.35 var(--font-body); color: var(--fg-2); text-wrap: pretty; }
+
+  .specs { display: flex; gap: 14px; flex-wrap: wrap; padding: 10px 0; border-top: 1px solid var(--border-1); border-bottom: 1px solid var(--border-1); }
+  .specs .spec { font: var(--w-medium) 11px/1.3 var(--font-mono); color: var(--fg-3); }
+  .specs .spec b { display: block; color: var(--fg-1); font-weight: 600; font-size: 13px; margin-top: 2px; }
+  .footer { display: flex; align-items: center; justify-content: space-between; margin-top: auto; }
+  .chip { display: inline-flex; padding: 4px 8px; border-radius: 999px; font: var(--w-semibold) 10px/1 var(--font-body); letter-spacing: .04em; background: var(--hardex-green-100); color: var(--hardex-green-800); }
+  .ghost { font: var(--w-semibold) 12px/1 var(--font-body); color: var(--hardex-green-700); cursor: pointer; }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="cover wp"><span class="cover-tag">BEST SELLER</span></div>
+    <div class="eyebrow"><span class="fam">Waterproofing</span><span class="code">WP 42</span></div>
+    <div class="name">Aquashield<span class="super">®</span></div>
+    <div class="desc">Elastomeric roof membrane — stretches over concrete cracks, blocks water.</div>
+    <div class="specs">
+      <div class="spec">COVERAGE<b>1.2 kg/m²</b></div>
+      <div class="spec">ELONGATION<b>350%</b></div>
+    </div>
+    <div class="footer"><span class="chip">LOW VOC ✓</span><span class="ghost">View TDS →</span></div>
+  </div>
+  <div class="card">
+    <div class="cover fh"></div>
+    <div class="eyebrow"><span class="fam">Floor hardener</span><span class="code">FH 110</span></div>
+    <div class="name">Tuffgrip<span class="super">®</span></div>
+    <div class="desc">Non-metallic dry-shake hardener — 3× harder floors, forklift-proof.</div>
+    <div class="specs">
+      <div class="spec">COVERAGE<b>5 kg/m²</b></div>
+      <div class="spec">MOHS<b>7.0</b></div>
+    </div>
+    <div class="footer"><span class="chip">BEST SELLER</span><span class="ghost">View TDS →</span></div>
+  </div>
+  <div class="card">
+    <div class="cover ep"><span class="cover-tag new">NEW · 2026</span></div>
+    <div class="eyebrow"><span class="fam">Epoxy coating</span><span class="code">EP 318</span></div>
+    <div class="name">Mirrorcoat<span class="super">®</span></div>
+    <div class="desc">Self-levelling epoxy topping — pours flat, cures glossy, chemical-proof.</div>
+    <div class="specs">
+      <div class="spec">THICKNESS<b>2–3 mm</b></div>
+      <div class="spec">SHORE D<b>85+</b></div>
+    </div>
+    <div class="footer"><span class="chip">NEW · 2026</span><span class="ghost">View TDS →</span></div>
+  </div>
+</body>
+</html>

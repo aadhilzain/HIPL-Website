@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Bubble dot motif</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { background: var(--bg-1); padding: 18px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+  .frame { border-radius: var(--r-md); padding: 18px; min-height: 150px; position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: flex-end; }
+  .frame .label { font: var(--w-semibold) 10px/1 var(--font-mono); letter-spacing: .1em; text-transform: uppercase; }
+
+  .one { background: var(--bg-0); border: 1px solid var(--border-1); }
+  .one .stat { font: 800 64px/1 var(--font-display); color: var(--fg-1); letter-spacing: -0.04em; position: relative; z-index: 1; }
+  .one .label { color: var(--fg-3); margin-top: 8px; }
+  .b { position: absolute; border-radius: 999px; background: var(--hardex-green-500); }
+
+  .two { background: var(--hardex-cement-900); color: #fff; }
+  .two .label { color: rgba(255,255,255,.7); margin-top: auto; }
+  .two .h { font: 700 22px/1.2 var(--font-display); color: #fff; letter-spacing: -0.02em; }
+
+  .three { background: linear-gradient(160deg, var(--hardex-green-500), var(--hardex-green-700)); color: #fff; }
+  .three .h { font: 700 22px/1.2 var(--font-display); letter-spacing: -0.02em; }
+  .three .label { color: rgba(255,255,255,.8); margin-top: auto; }
+</style>
+</head>
+<body>
+  <div class="frame one">
+    <div class="b" style="width:60px;height:60px;top:14px;right:18px;background:var(--hardex-green-500)"></div>
+    <div class="b" style="width:22px;height:22px;top:14px;right:90px;background:var(--hardex-green-400)"></div>
+    <div class="b" style="width:10px;height:10px;top:50px;right:106px;background:var(--hardex-green-300)"></div>
+    <div class="stat">150+</div>
+    <div class="label">Behind a stat · solid</div>
+  </div>
+
+  <div class="frame two">
+    <div class="b" style="width:120px;height:120px;top:-30px;right:-20px;background:var(--hardex-green-500);opacity:.85"></div>
+    <div class="b" style="width:48px;height:48px;top:54px;right:90px;background:var(--hardex-lime-500);opacity:.95"></div>
+    <div class="b" style="width:20px;height:20px;top:18px;right:138px;background:var(--hardex-green-300);opacity:.85"></div>
+    <div class="h">Cluster · accent on dark slab</div>
+    <div class="label">cluster · vary scale & opacity</div>
+  </div>
+
+  <div class="frame three">
+    <div class="b" style="width:8px;height:8px;top:30%;left:10%;background:#fff;opacity:.12"></div>
+    <div class="b" style="width:14px;height:14px;top:55%;left:22%;background:#fff;opacity:.12"></div>
+    <div class="b" style="width:6px;height:6px;top:20%;left:42%;background:#fff;opacity:.12"></div>
+    <div class="b" style="width:22px;height:22px;top:60%;left:62%;background:#fff;opacity:.12"></div>
+    <div class="b" style="width:10px;height:10px;top:35%;left:78%;background:#fff;opacity:.12"></div>
+    <div class="b" style="width:8px;height:8px;top:75%;left:88%;background:#fff;opacity:.12"></div>
+    <div class="h">Field pattern</div>
+    <div class="label">scattered · low opacity · texture</div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Logo lockups</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@800;900&display=swap">
+<style>
+  body { background: var(--bg-1); padding: 14px; display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 10px; }
+  .frame { border-radius: var(--r-md); padding: 18px; display: flex; flex-direction: column; gap: 8px; min-height: 130px; justify-content: center; align-items: center; position: relative; overflow: hidden; }
+  .green { background: var(--hardex-green-500); color: #fff; }
+  .light { background: var(--bg-0); color: var(--fg-1); border: 1px solid var(--border-1); }
+  .ink { background: var(--hardex-cement-900); color: #fff; }
+  .wordmark { font-family: 'Nunito', system-ui, sans-serif; font-weight: 900; font-size: 60px; line-height: 1; letter-spacing: -0.045em; position: relative; padding-right: 22px; }
+  .wordmark .x { position: relative; display: inline-block; }
+  .bubble { position: absolute; border-radius: 999px; background: currentColor; }
+  .b1 { width: 12px; height: 12px; right: -6px; top: -6px; }
+  .b2 { width: 7px; height: 7px; right: -18px; top: -2px; opacity: .9; }
+  .b3 { width: 4px; height: 4px; right: -26px; top: 6px; opacity: .7; }
+  .tagline { font: var(--w-semibold) 9px/1 var(--font-body); letter-spacing: .4em; text-transform: uppercase; opacity: .8; padding-top: 4px; border-top: 1px solid currentColor; align-self: stretch; text-align: center; }
+  .name { position: absolute; bottom: 8px; left: 12px; font: var(--w-semibold) 9px/1 var(--font-mono); letter-spacing: .1em; opacity: .55; text-transform: uppercase; }
+  .green .name, .ink .name { color: rgba(255,255,255,.7); }
+</style>
+</head>
+<body>
+  <div class="frame green">
+    <div class="wordmark">hardex<span class="x">
+      <span class="bubble b1"></span><span class="bubble b2"></span><span class="bubble b3"></span>
+    </span></div>
+    <div class="tagline">Green Chemistry</div>
+    <div class="name">Primary · on green</div>
+  </div>
+  <div class="frame light">
+    <div class="wordmark" style="color: var(--hardex-green-700)">hardex<span class="x">
+      <span class="bubble b1"></span><span class="bubble b2"></span><span class="bubble b3"></span>
+    </span></div>
+    <div class="tagline" style="color: var(--fg-2)">Green Chemistry</div>
+    <div class="name">On light</div>
+  </div>
+  <div class="frame ink">
+    <div class="wordmark" style="color: var(--hardex-green-400)">hardex<span class="x">
+      <span class="bubble b1"></span><span class="bubble b2"></span><span class="bubble b3"></span>
+    </span></div>
+    <div class="tagline">Green Chemistry</div>
+    <div class="name">On ink</div>
+  </div>
+</body>
+</html>

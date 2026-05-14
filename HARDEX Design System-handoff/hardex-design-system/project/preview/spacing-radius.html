@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Spacing & Radius</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { background: var(--bg-1); padding: 22px 26px; display: grid; grid-template-columns: 1fr 1fr; gap: 30px; align-items: start; }
+  h4 { font: var(--w-semibold) 11px/1 var(--font-body); letter-spacing: .14em; text-transform: uppercase; color: var(--fg-2); margin: 0 0 14px 0; }
+  .space-row { display: grid; grid-template-columns: 40px 1fr 60px; align-items: center; gap: 12px; margin-bottom: 6px; }
+  .space-row .tok { font: var(--w-semibold) 11px/1 var(--font-mono); color: var(--fg-3); }
+  .space-row .bar { background: var(--hardex-green-500); height: 8px; border-radius: 4px; }
+  .space-row .val { font: var(--w-medium) 11px/1 var(--font-mono); color: var(--fg-3); text-align: right; }
+
+  .radii { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+  .radius-cell { aspect-ratio: 1; background: var(--bg-0); border: 1px solid var(--border-1); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; }
+  .radius-cell .r-token { font: var(--w-semibold) 11px/1 var(--font-mono); color: var(--fg-1); }
+  .radius-cell .r-val { font: var(--w-medium) 10px/1 var(--font-mono); color: var(--fg-3); }
+</style>
+</head>
+<body>
+  <div>
+    <h4>Spacing scale — 4px grid</h4>
+    <div class="space-row"><span class="tok">--s-1</span><div class="bar" style="width:4px"></div><span class="val">4</span></div>
+    <div class="space-row"><span class="tok">--s-2</span><div class="bar" style="width:8px"></div><span class="val">8</span></div>
+    <div class="space-row"><span class="tok">--s-3</span><div class="bar" style="width:12px"></div><span class="val">12</span></div>
+    <div class="space-row"><span class="tok">--s-4</span><div class="bar" style="width:16px"></div><span class="val">16</span></div>
+    <div class="space-row"><span class="tok">--s-5</span><div class="bar" style="width:24px"></div><span class="val">24</span></div>
+    <div class="space-row"><span class="tok">--s-6</span><div class="bar" style="width:32px"></div><span class="val">32</span></div>
+    <div class="space-row"><span class="tok">--s-7</span><div class="bar" style="width:48px"></div><span class="val">48</span></div>
+    <div class="space-row"><span class="tok">--s-8</span><div class="bar" style="width:64px"></div><span class="val">64</span></div>
+    <div class="space-row"><span class="tok">--s-9</span><div class="bar" style="width:96px"></div><span class="val">96</span></div>
+  </div>
+  <div>
+    <h4>Corner radii</h4>
+    <div class="radii">
+      <div class="radius-cell" style="border-radius:0"><span class="r-token">--r-none</span><span class="r-val">0</span></div>
+      <div class="radius-cell" style="border-radius:4px"><span class="r-token">--r-xs</span><span class="r-val">4</span></div>
+      <div class="radius-cell" style="border-radius:8px"><span class="r-token">--r-sm</span><span class="r-val">8</span></div>
+      <div class="radius-cell" style="border-radius:12px"><span class="r-token">--r-md</span><span class="r-val">12 · default</span></div>
+      <div class="radius-cell" style="border-radius:18px"><span class="r-token">--r-lg</span><span class="r-val">18</span></div>
+      <div class="radius-cell" style="border-radius:28px"><span class="r-token">--r-xl</span><span class="r-val">28</span></div>
+      <div class="radius-cell" style="border-radius:40px"><span class="r-token">--r-2xl</span><span class="r-val">40</span></div>
+      <div class="radius-cell" style="border-radius:999px"><span class="r-token">--r-pill</span><span class="r-val">999 · pills</span></div>
+    </div>
+  </div>
+</body>
+</html>

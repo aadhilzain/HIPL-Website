@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Chips & badges</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { background: var(--bg-1); padding: 22px 28px; display: grid; gap: 14px; }
+  .row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+  .lbl { font: var(--w-semibold) 10px/1 var(--font-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--fg-3); width: 80px; flex-shrink: 0; }
+
+  .chip { display: inline-flex; align-items: center; gap: 6px; padding: 5px 10px; border-radius: 999px; font: var(--w-semibold) 11px/1 var(--font-body); letter-spacing: .04em; }
+  .chip.green { background: var(--hardex-green-100); color: var(--hardex-green-800); }
+  .chip.lime { background: var(--hardex-lime-100); color: var(--hardex-green-900); }
+  .chip.solar { background: var(--hardex-solar-soft); color: #7a5a00; }
+  .chip.coral { background: var(--hardex-coral-soft); color: #952b1c; }
+  .chip.sky { background: var(--hardex-sky-soft); color: #0c4a72; }
+  .chip.cement { background: var(--hardex-cement-200); color: var(--hardex-cement-800); }
+
+  .chip-solid { padding: 5px 10px; border-radius: 999px; font: var(--w-semibold) 11px/1 var(--font-body); letter-spacing: .04em; color: #fff; }
+  .chip-solid.green { background: var(--hardex-green-500); }
+  .chip-solid.dark { background: var(--hardex-cement-900); }
+
+  .tag { padding: 4px 8px; border-radius: 4px; font: var(--w-semibold) 10px/1 var(--font-mono); letter-spacing: .08em; text-transform: uppercase; }
+  .tag.new { background: var(--hardex-lime-500); color: var(--hardex-green-900); }
+  .tag.iso { background: var(--bg-0); border: 1px solid var(--border-strong); color: var(--fg-1); }
+  .tag.code { background: var(--hardex-cement-900); color: #fff; }
+
+  .dot { width: 6px; height: 6px; border-radius: 999px; display: inline-block; }
+</style>
+</head>
+<body>
+  <div class="row">
+    <span class="lbl">Status</span>
+    <span class="chip green"><span class="dot" style="background:var(--hardex-green-500)"></span>In stock</span>
+    <span class="chip solar"><span class="dot" style="background:var(--hardex-solar)"></span>Low stock</span>
+    <span class="chip coral"><span class="dot" style="background:var(--hardex-coral)"></span>Out of stock</span>
+    <span class="chip sky"><span class="dot" style="background:var(--hardex-sky)"></span>Pre-order</span>
+    <span class="chip cement"><span class="dot" style="background:var(--fg-3)"></span>Discontinued</span>
+  </div>
+  <div class="row">
+    <span class="lbl">Credentials</span>
+    <span class="chip green">LOW VOC ✓</span>
+    <span class="chip green">GREEN CHEMISTRY</span>
+    <span class="tag iso">ISO 9001 ✓</span>
+    <span class="chip lime">RECYCLABLE</span>
+    <span class="chip cement">TDS · MSDS</span>
+  </div>
+  <div class="row">
+    <span class="lbl">Markers</span>
+    <span class="tag new">NEW</span>
+    <span class="tag code">HARDEX WP 42</span>
+    <span class="chip-solid green">Best seller</span>
+    <span class="chip-solid dark">Pro grade</span>
+  </div>
+</body>
+</html>

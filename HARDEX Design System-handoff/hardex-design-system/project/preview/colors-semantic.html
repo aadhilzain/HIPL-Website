@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Semantic colors</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { background: var(--bg-1); padding: 20px; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .col h4 { font: var(--w-semibold) 11px/1 var(--font-body); letter-spacing: .14em; text-transform: uppercase; color: var(--fg-2); margin: 0 0 10px 0; }
+  .row { display: flex; align-items: center; gap: 10px; padding: 7px 10px; border-radius: var(--r-sm); }
+  .row + .row { margin-top: 4px; }
+  .chip { width: 22px; height: 22px; border-radius: 6px; flex-shrink: 0; box-shadow: var(--shadow-xs); }
+  .row .tok { font: var(--w-semibold) 12px/1 var(--font-mono); color: var(--fg-1); }
+  .row .desc { font: var(--w-regular) 11px/1.2 var(--font-body); color: var(--fg-3); margin-left: auto; }
+</style>
+</head>
+<body>
+  <div class="grid">
+    <div class="col">
+      <h4>Foreground · text & icons</h4>
+      <div class="row"><div class="chip" style="background:var(--fg-1)"></div><span class="tok">--fg-1</span><span class="desc">primary text</span></div>
+      <div class="row"><div class="chip" style="background:var(--fg-2)"></div><span class="tok">--fg-2</span><span class="desc">secondary · labels</span></div>
+      <div class="row"><div class="chip" style="background:var(--fg-3)"></div><span class="tok">--fg-3</span><span class="desc">tertiary · captions</span></div>
+      <div class="row"><div class="chip" style="background:var(--fg-brand)"></div><span class="tok">--fg-brand</span><span class="desc">brand-colored text</span></div>
+    </div>
+    <div class="col">
+      <h4>Background · surfaces</h4>
+      <div class="row"><div class="chip" style="background:var(--bg-0); border:1px solid var(--border-1)"></div><span class="tok">--bg-0</span><span class="desc">pure white · cards</span></div>
+      <div class="row"><div class="chip" style="background:var(--bg-1)"></div><span class="tok">--bg-1</span><span class="desc">app canvas</span></div>
+      <div class="row"><div class="chip" style="background:var(--bg-2)"></div><span class="tok">--bg-2</span><span class="desc">raised panel</span></div>
+      <div class="row"><div class="chip" style="background:var(--bg-brand)"></div><span class="tok">--bg-brand</span><span class="desc">hero green slab</span></div>
+    </div>
+  </div>
+</body>
+</html>

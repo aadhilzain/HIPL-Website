@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Form inputs</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { background: var(--bg-1); padding: 22px 28px; display: grid; grid-template-columns: 1fr 1fr; gap: 18px 24px; align-items: end; }
+  .field { display: flex; flex-direction: column; gap: 6px; }
+  .field label { font: var(--w-semibold) 11px/1 var(--font-body); letter-spacing: .08em; text-transform: uppercase; color: var(--fg-2); }
+  .input { padding: 12px 14px; border-radius: var(--r-md); border: 1px solid var(--border-2); background: var(--bg-0); font: var(--w-medium) 14px/1.2 var(--font-body); color: var(--fg-1); transition: all 140ms ease; }
+  .input::placeholder { color: var(--fg-mute); }
+  .input:focus { outline: 3px solid var(--hardex-green-300); outline-offset: 0; border-color: var(--hardex-green-500); }
+  .input.error { border-color: var(--hardex-coral); }
+  .input.success { border-color: var(--hardex-green-500); }
+  .select { appearance: none; background-image: linear-gradient(45deg, transparent 50%, var(--fg-1) 50%), linear-gradient(135deg, var(--fg-1) 50%, transparent 50%); background-position: calc(100% - 18px) 50%, calc(100% - 13px) 50%; background-size: 5px 5px, 5px 5px; background-repeat: no-repeat; padding-right: 36px; }
+  .hint { font: var(--w-medium) 11px/1.3 var(--font-body); color: var(--fg-3); }
+  .hint.error { color: var(--hardex-coral); }
+  .toggle { display: inline-flex; align-items: center; gap: 10px; }
+  .toggle .sw { width: 36px; height: 20px; background: var(--hardex-green-500); border-radius: 999px; position: relative; transition: 140ms; }
+  .toggle .sw::after { content: ''; position: absolute; top: 2px; right: 2px; width: 16px; height: 16px; background: #fff; border-radius: 999px; box-shadow: var(--shadow-xs); }
+  .toggle.off .sw { background: var(--hardex-cement-300); }
+  .toggle.off .sw::after { right: auto; left: 2px; }
+  .toggle span { font: var(--w-medium) 13px/1 var(--font-body); color: var(--fg-1); }
+</style>
+</head>
+<body>
+  <div class="field">
+    <label>Company name</label>
+    <input class="input" placeholder="e.g. Reliable Constructions Pvt. Ltd."/>
+    <div class="hint">As it should appear on the invoice.</div>
+  </div>
+  <div class="field">
+    <label>Inquiry type</label>
+    <select class="input select">
+      <option>Product information</option>
+      <option>Technical support</option>
+      <option>Request sample</option>
+      <option>Custom formulation</option>
+    </select>
+  </div>
+  <div class="field">
+    <label>Product code</label>
+    <input class="input success" value="HARDEX WP 42" style="font-family: var(--font-mono);"/>
+    <div class="hint" style="color: var(--hardex-green-700)">✓ Verified — TDS available</div>
+  </div>
+  <div class="field">
+    <label>PIN code</label>
+    <input class="input error" value="41100" style="font-family: var(--font-mono);"/>
+    <div class="hint error">Indian PIN code must be 6 digits.</div>
+  </div>
+  <div class="field toggle">
+    <div class="sw"></div>
+    <span>Receive TDS updates via WhatsApp</span>
+  </div>
+  <div class="field toggle off">
+    <div class="sw"></div>
+    <span>Subscribe to monthly Hindi newsletter</span>
+  </div>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Buttons</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { background: var(--bg-1); padding: 24px 28px; display: grid; grid-template-columns: 1fr; gap: 14px; }
+  .row { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+  .lbl { font: var(--w-semibold) 10px/1 var(--font-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--fg-3); width: 80px; flex-shrink: 0; }
+  .btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 18px; border-radius: 28px; font: var(--w-semibold) 14px/1 var(--font-body); letter-spacing: -0.005em; border: 1px solid transparent; cursor: pointer; transition: all 220ms cubic-bezier(0.16,1,0.3,1); }
+  .btn-primary { background: var(--hardex-green-500); color: #fff; box-shadow: var(--shadow-inset); }
+  .btn-primary:hover { background: var(--hardex-green-600); box-shadow: var(--shadow-glow), var(--shadow-inset); }
+  .btn-secondary { background: var(--bg-0); color: var(--fg-1); border-color: var(--border-strong); }
+  .btn-secondary:hover { background: var(--hardex-cement-100); }
+  .btn-ghost { background: transparent; color: var(--hardex-green-700); }
+  .btn-ghost:hover { text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 1px; }
+  .btn-dark { background: var(--hardex-cement-900); color: #fff; }
+  .btn-lime { background: var(--hardex-lime-500); color: var(--hardex-green-900); }
+  .btn-sm { padding: 8px 14px; font-size: 13px; }
+  .btn-lg { padding: 16px 24px; font-size: 16px; }
+  .btn-disabled { background: var(--hardex-cement-200); color: var(--hardex-cement-500); cursor: not-allowed; }
+</style>
+</head>
+<body>
+  <div class="row">
+    <span class="lbl">Primary</span>
+    <button class="btn btn-primary">Explore products <span>→</span></button>
+    <button class="btn btn-primary btn-sm">Request sample</button>
+    <button class="btn btn-primary btn-lg">Get a quote <span>→</span></button>
+  </div>
+  <div class="row">
+    <span class="lbl">Secondary</span>
+    <button class="btn btn-secondary">Download TDS <span>↗</span></button>
+    <button class="btn btn-secondary btn-sm">View details</button>
+    <button class="btn btn-disabled">Out of stock</button>
+  </div>
+  <div class="row">
+    <span class="lbl">Accent</span>
+    <button class="btn btn-dark">Find a dealer <span>→</span></button>
+    <button class="btn btn-lime">Low VOC ✓</button>
+    <button class="btn btn-ghost">Learn more <span>→</span></button>
+  </div>
+</body>
+</html>

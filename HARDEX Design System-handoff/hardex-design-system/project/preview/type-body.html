@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Body type</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { background: var(--bg-1); padding: 24px 28px; display: grid; grid-template-columns: 1fr 1fr 1fr 1fr 1fr; gap: 18px; align-items: end; }
+  .specimen { font-family: var(--font-body); color: var(--fg-1); }
+  .lbl { font: var(--w-semibold) 10px/1 var(--font-mono); letter-spacing: .1em; color: var(--fg-3); margin-top: 12px; text-transform: uppercase; }
+  .w4 { font-weight: 400; }
+  .w5 { font-weight: 500; }
+  .w6 { font-weight: 600; }
+  .w7 { font-weight: 700; }
+  .w8 { font-weight: 800; }
+  .big { font-size: 44px; line-height: 1; letter-spacing: -0.02em; }
+</style>
+</head>
+<body>
+  <div><div class="specimen big w4">Aa</div><div class="lbl">Regular · 400</div></div>
+  <div><div class="specimen big w5">Aa</div><div class="lbl">Medium · 500</div></div>
+  <div><div class="specimen big w6">Aa</div><div class="lbl">Semibold · 600</div></div>
+  <div><div class="specimen big w7">Aa</div><div class="lbl">Bold · 700</div></div>
+  <div><div class="specimen big w8">Aa</div><div class="lbl">Extrabold · 800</div></div>
+</body>
+</html>

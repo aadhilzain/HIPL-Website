@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Stat strip</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { background: var(--bg-1); padding: 20px; display: grid; gap: 14px; }
+  .strip-dark { background: var(--hardex-cement-900); padding: 18px 22px; border-radius: var(--r-md); display: flex; align-items: center; gap: 18px; overflow: hidden; }
+  .strip-dark .item { font: var(--w-semibold) 12px/1 var(--font-body); letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.85); display: flex; gap: 12px; align-items: center; flex-shrink: 0; }
+  .strip-dark .item .dot { width: 6px; height: 6px; border-radius: 999px; background: var(--hardex-green-500); }
+  .strip-dark .item .check { color: var(--hardex-green-400); font-family: var(--font-mono); }
+
+  .stat-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  .stat { background: var(--bg-0); border-radius: var(--r-md); padding: 18px 20px; }
+  .stat .num { font: var(--w-bold) 42px/1 var(--font-display); color: var(--fg-1); letter-spacing: -0.03em; }
+  .stat .num em { font-style: normal; color: var(--hardex-green-500); }
+  .stat .lbl { font: var(--w-semibold) 11px/1.2 var(--font-body); letter-spacing: .12em; text-transform: uppercase; color: var(--fg-2); margin-top: 4px; }
+</style>
+</head>
+<body>
+  <div class="strip-dark">
+    <span class="item"><span class="dot"></span>LOW VOC</span>
+    <span class="item">GREEN CHEMISTRY <span class="check">✓</span></span>
+    <span class="item">TDS + MSDS</span>
+    <span class="item">PAN-INDIA SUPPLY</span>
+    <span class="item">ISO <span class="check">✓</span></span>
+  </div>
+  <div class="stat-row">
+    <div class="stat"><div class="num">150<em>+</em></div><div class="lbl">Formulations</div></div>
+    <div class="stat"><div class="num"><em>Since</em> 1980</div><div class="lbl">Manufacturing</div></div>
+    <div class="stat"><div class="num">28<em> states</em></div><div class="lbl">Pan-India</div></div>
+    <div class="stat"><div class="num">ISO <em>✓</em></div><div class="lbl">Rigorous QC</div></div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Motion</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { background: var(--bg-1); padding: 22px 26px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
+  .lane { background: var(--bg-0); border-radius: var(--r-md); padding: 16px; box-shadow: var(--shadow-xs); }
+  .name { font: var(--w-semibold) 11px/1 var(--font-body); letter-spacing: .12em; text-transform: uppercase; color: var(--fg-2); }
+  .desc { font: var(--w-medium) 11px/1.4 var(--font-mono); color: var(--fg-3); margin-top: 4px; }
+  .track { position: relative; height: 56px; margin-top: 16px; }
+  .track::before { content:''; position: absolute; left: 0; right: 0; top: 50%; height: 1px; background: var(--border-1); transform: translateY(-50%); }
+  .dot { position: absolute; top: 50%; left: 0; transform: translate(0, -50%); width: 18px; height: 18px; border-radius: 999px; background: var(--hardex-green-500); box-shadow: var(--shadow-sm); }
+  .out .dot { animation: slide-out 1800ms infinite cubic-bezier(0.16, 1, 0.3, 1); }
+  .spring .dot { animation: slide-out 1800ms infinite cubic-bezier(0.34, 1.56, 0.64, 1); background: var(--hardex-lime-500); }
+  .in .dot { animation: slide-out 1800ms infinite cubic-bezier(0.5, 0, 0.75, 0); background: var(--hardex-cement-700); }
+  @keyframes slide-out {
+    0% { left: 0; }
+    45%, 55% { left: calc(100% - 18px); }
+    100% { left: 0; }
+  }
+  .vars { font: var(--w-medium) 10px/1.5 var(--font-mono); color: var(--fg-3); margin-top: 10px; }
+</style>
+</head>
+<body>
+  <div class="lane out">
+    <div class="name">Ease-out · default</div>
+    <div class="desc">soft confident landing — hovers, panels, fades</div>
+    <div class="track"><div class="dot"></div></div>
+    <div class="vars">--ease-out · 220ms · --dur-base</div>
+  </div>
+  <div class="lane spring">
+    <div class="name">Spring</div>
+    <div class="desc">success ticks, bubble-dot motif only</div>
+    <div class="track"><div class="dot"></div></div>
+    <div class="vars">--ease-spring · 420ms · --dur-slow</div>
+  </div>
+  <div class="lane in">
+    <div class="name">Ease-in</div>
+    <div class="desc">exits, dismissals — never on entrances</div>
+    <div class="track"><div class="dot"></div></div>
+    <div class="vars">--ease-in · 140ms · --dur-fast</div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Elevation</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { background: var(--bg-1); padding: 26px; display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px; align-items: center; }
+  .card { aspect-ratio: 1; background: var(--bg-0); border-radius: var(--r-md); display: flex; flex-direction: column; align-items: center; justify-content: flex-end; padding: 12px 8px; text-align: center; }
+  .tok { font: var(--w-semibold) 11px/1 var(--font-mono); color: var(--fg-1); margin-bottom: 4px; }
+  .note { font: var(--w-medium) 9px/1.2 var(--font-mono); color: var(--fg-3); letter-spacing: .02em; }
+</style>
+</head>
+<body>
+  <div class="card" style="box-shadow:var(--shadow-xs)"><span class="tok">xs</span><span class="note">divider lift</span></div>
+  <div class="card" style="box-shadow:var(--shadow-sm)"><span class="tok">sm</span><span class="note">resting card</span></div>
+  <div class="card" style="box-shadow:var(--shadow-md)"><span class="tok">md</span><span class="note">hover state</span></div>
+  <div class="card" style="box-shadow:var(--shadow-lg)"><span class="tok">lg</span><span class="note">popovers</span></div>
+  <div class="card" style="box-shadow:var(--shadow-xl)"><span class="tok">xl</span><span class="note">modals</span></div>
+  <div class="card" style="background:var(--hardex-green-500); box-shadow:var(--shadow-glow)"><span class="tok" style="color:#fff">glow</span><span class="note" style="color:rgba(255,255,255,.8)">primary CTA</span></div>
+</body>
+</html>
