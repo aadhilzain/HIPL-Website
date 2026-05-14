@@ -4,12 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Product | Hardex India</title>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/pages.css">
   <style>
     .realtalk-block {
-      background: #0d1b26;
+      background: var(--bg-ink);
       border: 1px solid rgba(240,195,48,0.2);
       border-radius: 8px;
       margin: 24px 0;
@@ -45,7 +45,7 @@
 <!-- Related Products -->
 <div class="page-section" id="related-section" style="background:#f9f9f7; max-width:100%; margin:0; padding:80px 40px; display:none;">
   <div style="max-width:1200px; margin:0 auto;">
-    <h2 style="font-family:'Bebas Neue',sans-serif; font-size:36px; letter-spacing:0.02em; margin-bottom:24px;">Related <em style="font-style:normal; color:#00BCD4;">Products</em></h2>
+    <h2 style="font-family:var(--font-display); font-size:36px; letter-spacing:0.02em; margin-bottom:24px;">Related <em style="font-style:normal; color:var(--hardex-green-500);">Products</em></h2>
     <div class="card-grid" id="related-products"></div>
   </div>
 </div>
@@ -60,6 +60,8 @@
 <div id="shared-footer"></div>
 
 <script src="config/products-data.js"></script>
+<script src="config/site-config.js"></script>
+<script src="config/products-data.js"></script>
 <script src="components/shared-nav.js"></script>
 <script>
 (function() {
@@ -72,13 +74,13 @@
   const productId = params.get('id');
 
   if (!productId) {
-    document.getElementById('product-content').innerHTML = '<div style="text-align:center; padding:80px 0;"><h2 style="font-family:Bebas Neue,sans-serif; font-size:48px;">Product Not Found</h2><p style="color:#888; margin-top:12px;">Please select a product from our <a href="products.html" style="color:#00BCD4">catalog</a>.</p></div>';
+    document.getElementById('product-content').innerHTML = '<div style="text-align:center; padding:80px 0;"><h2 style="font-family:var(--font-display); font-size:48px;">Product Not Found</h2><p style="color:#888; margin-top:12px;">Please select a product from our <a href="products.html" style="color:var(--hardex-green-500)">catalog</a>.</p></div>';
     return;
   }
 
   const product = PRODUCTS.find(p => p.id === productId);
   if (!product) {
-    document.getElementById('product-content').innerHTML = '<div style="text-align:center; padding:80px 0;"><h2 style="font-family:Bebas Neue,sans-serif; font-size:48px;">Product Not Found</h2><p style="color:#888; margin-top:12px;">Please select a product from our <a href="products.html" style="color:#00BCD4">catalog</a>.</p></div>';
+    document.getElementById('product-content').innerHTML = '<div style="text-align:center; padding:80px 0;"><h2 style="font-family:var(--font-display); font-size:48px;">Product Not Found</h2><p style="color:#888; margin-top:12px;">Please select a product from our <a href="products.html" style="color:var(--hardex-green-500)">catalog</a>.</p></div>';
     return;
   }
 
@@ -102,7 +104,7 @@
     downloadsHTML = '<div class="product-actions">';
     if (product.tds) downloadsHTML += `<a href="${product.tds}" class="btn-dark" style="border:none; display:inline-flex; align-items:center; gap:8px; background:#00BCD4; color:#0d0d0d; font-weight:700; font-size:14px; padding:14px 28px; border-radius:6px;" target="_blank">&#x2913; Download TDS</a>`;
     if (product.msds) downloadsHTML += `<a href="${product.msds}" class="btn-dark" style="border:none; display:inline-flex; align-items:center; gap:8px; background:transparent; color:#888; font-weight:600; font-size:14px; padding:13px 26px; border-radius:6px; border:1px solid rgba(0,0,0,0.1);" target="_blank">&#x2913; Download MSDS</a>`;
-    downloadsHTML += `<a href="contact.html" style="display:inline-flex; align-items:center; gap:8px; color:#00BCD4; font-weight:600; font-size:14px; padding:13px 26px;">Request Sample &rarr;</a>`;
+    downloadsHTML += `<a href="contact.html" style="display:inline-flex; align-items:center; gap:8px; color:var(--hardex-green-500); font-weight:600; font-size:14px; padding:13px 26px;">Request Sample &rarr;</a>`;
     downloadsHTML += '</div>';
   }
 
@@ -134,7 +136,7 @@
             arr.style.transform = open ? 'rotate(0deg)' : 'rotate(180deg)';
           ">
             <span style="display:flex;align-items:center;gap:8px;">
-              <span style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.12em;color:#f0c330;text-transform:uppercase;">Real Talk</span>
+              <span style="font-family:var(--font-mono);font-size:10px;letter-spacing:0.12em;color:#f0c330;text-transform:uppercase;">Real Talk</span>
               <span style="font-size:13px;color:rgba(255,255,255,0.45);font-weight:400;">What consumers actually need to know</span>
             </span>
             <svg id="realtalk-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="transition:transform 0.2s ease;flex-shrink:0;"><polyline points="6 9 12 15 18 9"></polyline></svg>
@@ -151,7 +153,7 @@
         <!-- Product image placeholder -->
         <div style="background:#0d0d0d; border-radius:12px; aspect-ratio:1; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:16px;">
           <span style="font-size:80px;">${product.icon || '🧪'}</span>
-          <span style="font-family:'DM Mono',monospace; font-size:11px; color:rgba(255,255,255,0.3); letter-spacing:0.08em; text-transform:uppercase;">Product Image</span>
+          <span style="font-family:var(--font-mono); font-size:11px; color:rgba(255,255,255,0.3); letter-spacing:0.08em; text-transform:uppercase;">Product Image</span>
         </div>
       </div>
     </div>
