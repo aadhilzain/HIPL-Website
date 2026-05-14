@@ -16,35 +16,33 @@
 
 <!-- ── HERO ── -->
 <section class="hero">
-  <div class="hero-inner" style="position:relative;">
-    <div class="hero-eyebrow">
-      <span class="hero-eyebrow-dot"></span>
-      CONSTRUCTION CHEMICALS · EST. 1980
-    </div>
-    <h1 class="hero-h1">
-      Build Harder.<br><span class="accent">Last Longer.</span>
-    </h1>
-    <p class="hero-p">150+ construction chemical formulations engineered for India's toughest conditions. Waterproofing to industrial coatings — manufactured in-house, documented to spec.</p>
-    <div class="hero-actions">
-      <a href="products.html" class="btn-primary">Explore Products →</a>
-      <a href="contact.html" class="btn-outline">Request a Sample</a>
-    </div>
-
-    <!-- Floating stat panel -->
-    <div class="hero-stat-panel">
-      <div class="hero-stat-eyebrow">Active Formulations</div>
-      <div class="hero-stat-number" id="hero-stat-count">150+</div>
-      <div class="hero-stat-desc">Engineered in India for India's monsoon, heat, and demanding construction sites.</div>
-      <div class="hero-stat-badges">
-        <span class="hero-stat-badge">LOW VOC ✓</span>
-        <span class="hero-stat-badge">TDS + MSDS Ready</span>
-        <span class="hero-stat-badge">ISO Certified</span>
+  <div class="hero-inner">
+    <!-- Left column -->
+    <div>
+      <div class="hero-eyebrow">
+        <span class="hero-eyebrow-dot"></span>
+        <span class="hero-eyebrow-text">Construction Chemicals · Est. 1980</span>
+      </div>
+      <h1 class="hero-h1">
+        Build Harder.<br><span class="accent">Last Longer.</span>
+      </h1>
+      <p class="hero-p">150+ construction chemical formulations engineered for India's toughest conditions. Waterproofing to industrial coatings — manufactured in-house, documented to spec.</p>
+      <div class="hero-actions">
+        <a href="products.html" class="btn-primary">Explore Products →</a>
+        <a href="contact.html" class="btn-outline">Request a Sample</a>
       </div>
     </div>
 
-    <!-- Bubble decoration -->
-    <div class="bubble-wrap bubble-a"></div>
-    <div class="bubble-wrap bubble-b"></div>
+    <!-- Right column — stat panel -->
+    <div class="hero-stat-panel">
+      <div class="hero-stat-n"><span id="hero-stat-count">96</span><span class="accent">+</span></div>
+      <p class="hero-stat-label">Construction chemical formulations engineered for India's toughest conditions.</p>
+      <div class="hero-stat-badges">
+        <span class="hero-badge">LOW VOC ✓</span>
+        <span class="hero-badge">TDS + MSDS Ready</span>
+        <span class="hero-badge">ISO Certified</span>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -72,14 +70,14 @@
 
 <!-- ── FEATURED PRODUCTS ── -->
 <section class="featured-products">
-  <div class="featured-products-header">
+  <div class="featured-header">
     <div>
       <div class="sec-label"><div class="sl-bar"></div><span class="sl-txt">Featured Products</span></div>
       <h2 class="sec-h">Products Built for<br>Indian Conditions.</h2>
     </div>
     <a href="products.html" class="btn-outline">Full Catalog →</a>
   </div>
-  <div class="featured-products-grid" id="featured-products-grid">
+  <div class="fp-grid" id="featured-products-grid">
     <!-- Populated by JS below -->
   </div>
 </section>
@@ -173,7 +171,7 @@
 <!-- ── CONTACT ── -->
 <section class="contact">
   <div class="contact-wrapper">
-    <div class="contact-left">
+    <div>
       <div class="sec-label"><div class="sl-bar"></div><span class="sl-txt">Contact Us</span></div>
       <h2 class="sec-h">Let's Build<br>Something<br>Together.</h2>
       <p class="contact-text">Need technical support, product samples, or custom formulations? Our team is here to help.</p>
@@ -201,9 +199,8 @@
         </div>
       </div>
     </div>
-    <div class="contact-right">
-      <div class="contact-form-surface">
-        <form class="contact-form" id="contactForm" action="thank-you.html">
+    <div>
+      <form class="contact-form" id="contactForm" action="thank-you.html">
           <div class="form-row">
             <div class="form-group">
               <label class="form-label">Your Name</label>
@@ -220,11 +217,11 @@
           </div>
           <div class="form-group">
             <label class="form-label">Inquiry Type</label>
-            <div class="inquiry-toggles" id="inquiryToggles">
-              <button type="button" class="inquiry-toggle active" data-val="Product Information">Product Information</button>
-              <button type="button" class="inquiry-toggle" data-val="Technical Support">Technical Support</button>
-              <button type="button" class="inquiry-toggle" data-val="Request Sample">Request Sample</button>
-              <button type="button" class="inquiry-toggle" data-val="Custom Formulation">Custom Formulation</button>
+            <div class="inquiry-pills" id="inquiryToggles">
+              <button type="button" class="inquiry-pill active" data-val="Product Information">Product Information</button>
+              <button type="button" class="inquiry-pill" data-val="Technical Support">Technical Support</button>
+              <button type="button" class="inquiry-pill" data-val="Request Sample">Request Sample</button>
+              <button type="button" class="inquiry-pill" data-val="Custom Formulation">Custom Formulation</button>
             </div>
             <input type="hidden" name="inquiry_type" id="inquiryTypeInput" value="Product Information">
           </div>
@@ -234,7 +231,6 @@
           </div>
           <button type="submit" class="btn-submit">Send Message →</button>
         </form>
-      </div>
     </div>
   </div>
 </section>
@@ -271,11 +267,11 @@
     <p>&copy; <span id="footer-year">2026</span> Hardex India Private Limited. All rights reserved.</p>
     <div class="footer-badges">
       <span>EST. 1980</span>
-      <span class="footer-badge-dot"></span>
+      <span style="opacity:0.4">·</span>
       <span>ISO ✓</span>
-      <span class="footer-badge-dot"></span>
+      <span style="opacity:0.4">·</span>
       <span>LOW VOC</span>
-      <span class="footer-badge-dot"></span>
+      <span style="opacity:0.4">·</span>
       <span>GREEN CHEMISTRY</span>
     </div>
   </div>
@@ -325,21 +321,19 @@
     if (aboutEl) aboutEl.textContent = products.length + '+';
 
     grid.innerHTML = featured.map(function (p) {
-      var catColor = '#E8F8F1';
-      var catText  = '#0E7F4F';
       return '<a href="product-detail.html?id=' + encodeURIComponent(p.id) + '" class="fp-card">' +
-        '<div class="fp-cover"><div class="fp-cover-inner" style="background:' + catColor + ';font-size:48px;color:' + catText + ';">🏗</div></div>' +
+        '<div class="fp-img"><div class="fp-img-bg"></div></div>' +
         '<div class="fp-body">' +
-          '<div class="fp-code">' + (p.subcategory || p.category || '') + '</div>' +
+          '<span class="fp-badge">' + (p.subcategory || p.category || '') + '</span>' +
           '<div class="fp-name">' + p.name + '</div>' +
           '<div class="fp-specs">' +
-            '<div class="fp-spec-row"><span class="fp-spec-label">Coverage</span><span class="fp-spec-val">' + (p.coverage || '—') + '</span></div>' +
-            '<div class="fp-spec-row"><span class="fp-spec-label">Category</span><span class="fp-spec-val">' + (p.category || '—') + '</span></div>' +
+            '<div class="fp-spec-row"><span class="fp-spec-key">Coverage</span><span class="fp-spec-val">' + (p.coverage || '—') + '</span></div>' +
+            '<div class="fp-spec-row"><span class="fp-spec-key">Category</span><span class="fp-spec-val">' + (p.category || '—') + '</span></div>' +
           '</div>' +
-          '<div class="fp-footer">' +
-            '<span class="fp-voc">LOW VOC ✓</span>' +
-            '<span class="fp-tds-link">Details →</span>' +
-          '</div>' +
+        '</div>' +
+        '<div class="fp-footer">' +
+          '<span class="fp-voc">LOW VOC ✓</span>' +
+          '<span class="fp-tds">Details →</span>' +
         '</div>' +
         '</a>';
     }).join('');
@@ -350,9 +344,9 @@
     var container = document.getElementById('inquiryToggles');
     var hidden     = document.getElementById('inquiryTypeInput');
     if (!container || !hidden) return;
-    container.querySelectorAll('.inquiry-toggle').forEach(function (btn) {
+    container.querySelectorAll('.inquiry-pill').forEach(function (btn) {
       btn.addEventListener('click', function () {
-        container.querySelectorAll('.inquiry-toggle').forEach(function (b) { b.classList.remove('active'); });
+        container.querySelectorAll('.inquiry-pill').forEach(function (b) { b.classList.remove('active'); });
         btn.classList.add('active');
         hidden.value = btn.getAttribute('data-val');
       });
@@ -377,7 +371,7 @@
           btn.style.background = '';
           btn.disabled       = false;
           form.reset();
-          document.getElementById('inquiryToggles').querySelectorAll('.inquiry-toggle').forEach(function (b, i) {
+          document.getElementById('inquiryToggles').querySelectorAll('.inquiry-pill').forEach(function (b, i) {
             b.classList.toggle('active', i === 0);
           });
           document.getElementById('inquiryTypeInput').value = 'Product Information';
