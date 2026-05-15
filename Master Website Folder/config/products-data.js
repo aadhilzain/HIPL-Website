@@ -29,7 +29,7 @@ const PRODUCTS = [
     
     realTalk: 'The boring first step that everyone skips—then wonders why their waterproofing failed in 6 months. This makes the topcoat actually stick.',
     
-    tds: '/assets/tds/hardproof-primer-wb.pdf', // TODO: Add actual TDS
+    tds: null, // TODO: Add actual TDS
     msds: null,
     
     seo: {
@@ -53,7 +53,7 @@ const PRODUCTS = [
     
     realTalk: 'PU systems need this or they peel off like cheap wallpaper. Not optional if you want your terrace to last more than two monsoons.',
     
-    tds: '/assets/tds/hardproof-primer-sb.pdf',
+    tds: null,
     msds: null,
     
     seo: {
@@ -77,7 +77,7 @@ const PRODUCTS = [
     
     realTalk: 'The premium option. When your contractor says "trust me, we don\'t need primer"—you need this guy fired and this product applied.',
     
-    tds: '/assets/tds/hardproof-primer-pu.pdf',
+    tds: null,
     msds: null,
     
     seo: {
@@ -101,7 +101,7 @@ const PRODUCTS = [
     
     realTalk: 'Add this to your concrete mix and the whole structure becomes waterproof from day one. Way cheaper than fixing leaks later.',
     
-    tds: '/assets/tds/hardproof-iw100.pdf',
+    tds: null,
     msds: null,
     
     seo: {
@@ -125,7 +125,7 @@ const PRODUCTS = [
     
     realTalk: 'Your mason is already mixing mortar. Add one scoop of this powder and your walls won\'t seep water during heavy rains. Simple.',
     
-    tds: '/assets/tds/hardproof-iw200.pdf',
+    tds: null,
     msds: null,
     
     seo: {
@@ -149,7 +149,7 @@ const PRODUCTS = [
     
     realTalk: 'Your water tank leaks and you\'re losing water (and money) every day. This creates a hard, waterproof shell that lasts for years.',
     
-    tds: '/assets/tds/hardproof-cm100.pdf',
+    tds: null,
     msds: null,
     
     seo: {
@@ -173,7 +173,7 @@ const PRODUCTS = [
     
     realTalk: 'Your bathroom walls are seeping water into the bedroom next door. Two coats of this and the problem stops. Permanently.',
     
-    tds: '/assets/tds/hardproof-cm200.pdf',
+    tds: null,
     msds: null,
     
     seo: {
@@ -197,7 +197,7 @@ const PRODUCTS = [
     
     realTalk: 'Your basement smells like a cave and everything stored there gets moldy. This creates a waterproof barrier against groundwater pressure.',
     
-    tds: '/assets/tds/hardproof-cm300.pdf',
+    tds: null,
     msds: null,
     
     seo: {
@@ -221,7 +221,7 @@ const PRODUCTS = [
     
     realTalk: 'Standard terrace coating. Does the job. Won\'t reflect heat like COOLCOAT, but it\'ll stop your ceiling from getting wet patches.',
     
-    tds: '/assets/tds/hardproof-acr300.pdf',
+    tds: null,
     msds: null,
     
     seo: {
@@ -245,7 +245,7 @@ const PRODUCTS = [
     
     realTalk: 'Your terrace leaks every monsoon and your top floor is an oven in summer. This stops the water AND drops your temperature 5-8°C. Fix two problems with one coating.',
     
-    tds: '/assets/tds/hardproof-coolcoat.pdf',
+    tds: null,
     msds: null,
     
     seo: {
@@ -269,7 +269,7 @@ const PRODUCTS = [
     
     realTalk: 'The premium option for terraces. More expensive than acrylic, but lasts 10+ years without peeling. One-time investment.',
     
-    tds: '/assets/tds/hardproof-pu200.pdf',
+    tds: null,
     msds: null,
     
     seo: {
@@ -293,7 +293,7 @@ const PRODUCTS = [
     
     realTalk: 'That crack in your wall keeps getting bigger every monsoon. Fill it with this and it stretches with the building movement—won\'t crack open again.',
     
-    tds: '/assets/tds/hardproof-pu350.pdf',
+    tds: null,
     msds: null,
     
     seo: {
@@ -317,7 +317,7 @@ const PRODUCTS = [
     
     realTalk: 'When regular waterproofing isn\'t enough. For roofs that get walked on daily, industrial buildings, or anywhere failure isn\'t an option.',
     
-    tds: '/assets/tds/hardproof-pu400.pdf',
+    tds: null,
     msds: null,
     
     seo: {
@@ -341,7 +341,7 @@ const PRODUCTS = [
     
     realTalk: 'Your ground floor walls are always damp and paint keeps peeling. This blocks moisture from the ground creeping up into your walls.',
     
-    tds: '/assets/tds/hardproof-dp100.pdf',
+    tds: null,
     msds: null,
     
     seo: {
@@ -365,7 +365,7 @@ const PRODUCTS = [
     
     realTalk: 'Water is actively pouring through a crack right now. This expands on contact with water and plugs the leak in minutes. Emergency fix.',
     
-    tds: '/assets/tds/hardproof-inj-pu.pdf',
+    tds: null,
     msds: null,
     
     seo: {
@@ -389,7 +389,7 @@ const PRODUCTS = [
     
     realTalk: 'This isn\'t just sealing—it\'s welding the crack back together. For when the crack is structural and you need the strength back.',
     
-    tds: '/assets/tds/hardproof-inj-ep.pdf',
+    tds: null,
     msds: null,
     
     seo: {
@@ -417,7 +417,7 @@ const PRODUCTS = [
     
     realTalk: 'Skip this and your expensive epoxy topcoat peels off in 6 months. Not optional—it\'s the foundation of everything above it.',
     
-    tds: '/assets/tds/hardfloor-ep100.pdf',
+    tds: null,
     msds: null,
     
     seo: {
@@ -441,7 +441,7 @@ const PRODUCTS = [
     
     realTalk: 'Your floor is still damp but you need to finish the project. This bonds to wet concrete when normal epoxy fails. Project saver.',
     
-    tds: '/assets/tds/hardfloor-mtp100.pdf',
+    tds: null,
     msds: null,
     
     seo: {
@@ -465,7 +465,7 @@ const PRODUCTS = [
     
     realTalk: 'Clean room walls need to be washable and chemical-resistant. This creates a seamless, easy-to-clean surface that meets hygiene standards.',
     
-    tds: '/assets/tds/hardfloor-erc150.pdf',
+    tds: null,
     msds: null,
     
     seo: {
@@ -489,7 +489,7 @@ const PRODUCTS = [
     
     realTalk: 'Your warehouse floor is dusty and looks unprofessional. Roll this on and you get a clean, dust-free surface that clients don\'t cringe at.',
     
-    tds: '/assets/tds/hardfloor-erc200.pdf',
+    tds: null,
     msds: null,
     
     seo: {
@@ -513,7 +513,7 @@ const PRODUCTS = [
     
     realTalk: 'Forklifts, chemical spills, 24/7 operations. This takes the beating and keeps going. Built for factories that can\'t afford downtime.',
     
-    tds: '/assets/tds/hardfloor-erc300.pdf',
+    tds: null,
     msds: null,
     
     seo: {
@@ -537,7 +537,7 @@ const PRODUCTS = [
     
     realTalk: 'Your factory floor is cracked, dusty, and embarrassing when clients visit. One application gives you a glass-smooth surface that looks like you spent serious money.',
     
-    tds: '/assets/tds/hardfloor-sl1000.pdf',
+    tds: null,
     msds: null,
     
     seo: {
@@ -561,7 +561,7 @@ const PRODUCTS = [
     
     realTalk: 'When regular epoxy isn\'t enough. For areas where forklifts drop loads, machinery vibrates 24/7, and normal floors crack in months.',
     
-    tds: '/assets/tds/hardfloor-sl1003.pdf',
+    tds: null,
     msds: null,
     
     seo: {
@@ -585,7 +585,7 @@ const PRODUCTS = [
     
     realTalk: 'The final layer that makes everything shine and protects your investment. Skip it and watch your floor dull out in 6 months.',
     
-    tds: '/assets/tds/hardfloor-tc500.pdf',
+    tds: null,
     msds: null,
     
     seo: {
@@ -609,7 +609,7 @@ const PRODUCTS = [
     
     realTalk: 'Food-grade floors that get washed down daily with hot water and chemicals. This stays intact when epoxy would fail. FDA compliant.',
     
-    tds: '/assets/tds/hardfloor-pu600.pdf',
+    tds: null,
     msds: null,
     
     seo: {
@@ -633,7 +633,7 @@ const PRODUCTS = [
     
     realTalk: 'Static electricity kills electronics. One spark destroys a ₹50,000 component. This floor dissipates charge before damage happens.',
     
-    tds: '/assets/tds/hardfloor-esd.pdf',
+    tds: null,
     msds: null,
     
     seo: {
@@ -657,7 +657,7 @@ const PRODUCTS = [
     
     realTalk: 'When acids, solvents, and chemicals are spilled daily. Epoxy melts, concrete dissolves. This keeps going. Chemical warfare flooring.',
     
-    tds: '/assets/tds/hardfloor-pu-sl.pdf',
+    tds: null,
     msds: null,
     
     seo: {
@@ -681,7 +681,7 @@ const PRODUCTS = [
     
     realTalk: 'Your concrete floor is dusty and crumbling under forklift traffic. Shake this on during finishing and you get a hard, dust-free surface for 1/5th the cost of epoxy.',
     
-    tds: '/assets/tds/hardfloor-qh.pdf',
+    tds: null,
     msds: null,
     
     seo: {
@@ -705,7 +705,7 @@ const PRODUCTS = [
     
     realTalk: 'The toughest non-epoxy option. For floors that take serious abuse—steel mills, foundries, heavy machinery. Harder than the concrete itself.',
     
-    tds: '/assets/tds/hardfloor-mh.pdf',
+    tds: null,
     msds: null,
     
     seo: {
@@ -729,7 +729,7 @@ const PRODUCTS = [
     
     realTalk: 'Grey version stops the dust. Colored version stops the dust AND makes oil stains, tire marks, scuffs look intentional. Your warehouse looks professional for ₹80/m² instead of ₹500/m² for epoxy.',
     
-    tds: '/assets/tds/nmx20.pdf',
+    tds: null,
     msds: null,
     
     seo: {
@@ -757,7 +757,7 @@ const PRODUCTS = [
     
     realTalk: 'Trying to patch old concrete? New concrete won\'t stick without this. Apply it and you get a chemical weld between old and new.',
     
-    tds: '/assets/tds/hardpoxy-eb300.pdf',
+    tds: null,
     msds: null,
     
     seo: {
@@ -781,7 +781,7 @@ const PRODUCTS = [
     
     realTalk: 'Your expensive machinery needs perfect leveling and zero vibration transfer. This grout sets hard and stays put—no shrinkage, no movement.',
     
-    tds: '/assets/tds/hardpoxy-eg100.pdf',
+    tds: null,
     msds: null,
     
     seo: {
@@ -805,7 +805,7 @@ const PRODUCTS = [
     
     realTalk: 'Regular grout crushes under heavy machinery. This takes the load without cracking. For when equipment weighs in tons and failure isn\'t an option.',
     
-    tds: '/assets/tds/hardpoxy-eg200.pdf',
+    tds: null,
     msds: null,
     
     seo: {
@@ -829,7 +829,7 @@ const PRODUCTS = [
     
     realTalk: 'Structural cracks need structural fixes. This flows deep into hairline cracks and bonds them back together—restores the strength.',
     
-    tds: '/assets/tds/hardpoxy-inj200.pdf',
+    tds: null,
     msds: null,
     
     seo: {
@@ -853,7 +853,7 @@ const PRODUCTS = [
     
     realTalk: 'Your concrete or steel is exposed to chemicals, moisture, or harsh environments. This seals it off from everything trying to destroy it.',
     
-    tds: '/assets/tds/hardpoxy-tc500.pdf',
+    tds: null,
     msds: null,
     
     seo: {
@@ -877,7 +877,7 @@ const PRODUCTS = [
     
     realTalk: 'Your floor has potholes from forklifts and heavy loads. Cement patches crack again in weeks. This bonds permanently and takes the abuse.',
     
-    tds: '/assets/tds/hardpoxy-sc400.pdf',
+    tds: null,
     msds: null,
     
     seo: {
@@ -901,7 +901,7 @@ const PRODUCTS = [
     
     realTalk: 'Bolts aren\'t always an option. This creates a permanent chemical bond stronger than the materials themselves. Structural engineering in a tube.',
     
-    tds: '/assets/tds/hardpoxy-adh.pdf',
+    tds: null,
     msds: null,
     
     seo: {
@@ -925,7 +925,7 @@ const PRODUCTS = [
     
     realTalk: 'Surface cracks that aren\'t structural but look bad and collect dirt. Fill them with this and they disappear—permanently sealed.',
     
-    tds: '/assets/tds/hardpoxy-crackfill.pdf',
+    tds: null,
     msds: null,
     
     seo: {
@@ -949,7 +949,7 @@ const PRODUCTS = [
     
     realTalk: 'Your floor is damp and you need to install flooring NOW. This seals the moisture in and creates a dry surface to work on.',
     
-    tds: '/assets/tds/hardpoxy-dampblock.pdf',
+    tds: null,
     msds: null,
     
     seo: {
@@ -973,7 +973,7 @@ const PRODUCTS = [
     
     realTalk: 'You need to anchor rebar or bolts into existing concrete. Drill, fill with this, insert bar. Sets in hours with pull-out strength that exceeds the concrete.',
     
-    tds: '/assets/tds/hardpoxy-anchor.pdf',
+    tds: null,
     msds: null,
     
     seo: {
@@ -1001,7 +1001,7 @@ const PRODUCTS = [
     
     realTalk: 'Your concrete is too stiff to pour properly. Add this and it flows like honey without adding extra water—strength stays intact.',
     
-    tds: '/assets/tds/hardcrete-sp100.pdf',
+    tds: null,
     msds: null,
     
     seo: {
@@ -1025,7 +1025,7 @@ const PRODUCTS = [
     
     realTalk: 'You need M60 or M70 concrete. Regular superplasticizer won\'t cut it. This gets you the strength without segregation or bleeding.',
     
-    tds: '/assets/tds/hardcrete-sp200.pdf',
+    tds: null,
     msds: null,
     
     seo: {
@@ -1049,7 +1049,7 @@ const PRODUCTS = [
     
     realTalk: 'Your RMC truck is stuck in traffic and the concrete is setting. PCE technology keeps it workable for hours—no rejected loads.',
     
-    tds: '/assets/tds/hardcrete-sp300.pdf',
+    tds: null,
     msds: null,
     
     seo: {
@@ -1073,7 +1073,7 @@ const PRODUCTS = [
     
     realTalk: 'Pouring concrete in summer heat? It\'s setting before you finish. This delays the set so you have time to place and finish properly.',
     
-    tds: '/assets/tds/hardcrete-r100.pdf',
+    tds: null,
     msds: null,
     
     seo: {
@@ -1097,7 +1097,7 @@ const PRODUCTS = [
     
     realTalk: 'You need to strip formwork tomorrow, not next week. This accelerates the set and gets you early strength without damaging the rebar.',
     
-    tds: '/assets/tds/hardcrete-a100.pdf',
+    tds: null,
     msds: null,
     
     seo: {
@@ -1121,7 +1121,7 @@ const PRODUCTS = [
     
     realTalk: 'Make the concrete waterproof from the inside during batching. Cheaper than external waterproofing and lasts the life of the structure.',
     
-    tds: '/assets/tds/hardcrete-wp100.pdf',
+    tds: null,
     msds: null,
     
     seo: {
@@ -1145,7 +1145,7 @@ const PRODUCTS = [
     
     realTalk: 'In freeze-thaw cycles, water expands and cracks concrete. Microscopic air bubbles give it room to expand—prevents cracking.',
     
-    tds: '/assets/tds/hardcrete-air100.pdf',
+    tds: null,
     msds: null,
     
     seo: {
@@ -1169,7 +1169,7 @@ const PRODUCTS = [
     
     realTalk: 'Spraying concrete on tunnel walls or vertical surfaces. This makes it stick instantly without slumping—sets in minutes.',
     
-    tds: '/assets/tds/hardcrete-sc100.pdf',
+    tds: null,
     msds: null,
     
     seo: {
@@ -1193,7 +1193,7 @@ const PRODUCTS = [
     
     realTalk: 'Budget-friendly workability improver. Not a superplasticizer, but makes concrete easier to place without spending big money.',
     
-    tds: '/assets/tds/hardcrete-plast.pdf',
+    tds: null,
     msds: null,
     
     seo: {
@@ -1217,7 +1217,7 @@ const PRODUCTS = [
     
     realTalk: 'Spray this on fresh concrete and it locks in moisture—concrete cures properly instead of drying too fast and cracking.',
     
-    tds: '/assets/tds/hardcrete-curing.pdf',
+    tds: null,
     msds: null,
     
     seo: {
@@ -1241,7 +1241,7 @@ const PRODUCTS = [
     
     realTalk: 'Your plaster keeps falling off. Mix this into your mortar and it bonds permanently—no more peeling or hollow sounds.',
     
-    tds: '/assets/tds/hardcrete-bond.pdf',
+    tds: null,
     msds: null,
     
     seo: {
@@ -1265,7 +1265,7 @@ const PRODUCTS = [
     
     realTalk: 'Spray this on your formwork before pouring. Concrete releases cleanly without sticking—saves time, saves wood, better finish.',
     
-    tds: '/assets/tds/hardcrete-release.pdf',
+    tds: null,
     msds: null,
     
     seo: {
@@ -1293,7 +1293,7 @@ const PRODUCTS = [
     
     realTalk: 'Your concrete is falling apart—spalling, exposed rebar, chunks missing. This rebuilds it with strength that matches or exceeds the original.',
     
-    tds: '/assets/tds/fastfix-rm40.pdf',
+    tds: null,
     msds: null,
     
     seo: {
@@ -1317,7 +1317,7 @@ const PRODUCTS = [
     
     realTalk: 'Regular repair mortar cracks again within months. Fibers hold it together—stops micro-cracks from spreading. More durable, lasts longer.',
     
-    tds: '/assets/tds/fastfix-rmf40.pdf',
+    tds: null,
     msds: null,
     
     seo: {
@@ -1341,7 +1341,7 @@ const PRODUCTS = [
     
     realTalk: 'Machine vibrates because the grout shrank and created gaps. This expands slightly to fill every void—machinery stays locked in place.',
     
-    tds: '/assets/tds/fastfix-gp2.pdf',
+    tds: null,
     msds: null,
     
     seo: {
@@ -1365,7 +1365,7 @@ const PRODUCTS = [
     
     realTalk: 'When you need concrete strength but mortar-like workability. Flows into tight spaces and sets with full structural properties.',
     
-    tds: '/assets/tds/fastfix-microcon.pdf',
+    tds: null,
     msds: null,
     
     seo: {
@@ -1389,7 +1389,7 @@ const PRODUCTS = [
     
     realTalk: 'Pour this around anchor bolts and it flows underneath the base plate on its own—no voids, no shrinkage, locked solid.',
     
-    tds: '/assets/tds/fastfix-anchorflow.pdf',
+    tds: null,
     msds: null,
     
     seo: {
@@ -1413,7 +1413,7 @@ const PRODUCTS = [
     
     realTalk: 'Can\'t apply protective coating on rusty rebar. This dissolves the rust chemically—clean steel surface ready for treatment.',
     
-    tds: '/assets/tds/fastfix-rr100.pdf',
+    tds: null,
     msds: null,
     
     seo: {
@@ -1437,7 +1437,7 @@ const PRODUCTS = [
     
     realTalk: 'Exposed rebar will rust again after repair. Coat it with this first—creates a protective barrier that stops corrosion for years.',
     
-    tds: '/assets/tds/fastfix-cp200.pdf',
+    tds: null,
     msds: null,
     
     seo: {
@@ -1461,7 +1461,7 @@ const PRODUCTS = [
     
     realTalk: 'Water is gushing through a hole RIGHT NOW. Mix this, press it in, hold for 60 seconds. It sets even underwater—leak stopped.',
     
-    tds: '/assets/tds/fastfix-wp100.pdf',
+    tds: null,
     msds: null,
     
     seo: {
@@ -1485,7 +1485,7 @@ const PRODUCTS = [
     
     realTalk: 'Drill hole, inject this, insert rebar, wait 4 hours. Pull-out strength exceeds the concrete itself. Permanent connection.',
     
-    tds: '/assets/tds/fastfix-ca500.pdf',
+    tds: null,
     msds: null,
     
     seo: {
@@ -1509,7 +1509,7 @@ const PRODUCTS = [
     
     realTalk: 'When CA500 isn\'t enough. For earthquake zones, heavy structural loads, or where anchor failure means catastrophe.',
     
-    tds: '/assets/tds/fastfix-ca700.pdf',
+    tds: null,
     msds: null,
     
     seo: {
@@ -1533,7 +1533,7 @@ const PRODUCTS = [
     
     realTalk: 'Your repair keeps falling off because old and new concrete won\'t bond. Paint this on before repair—creates a chemical bridge.',
     
-    tds: '/assets/tds/fastfix-latex.pdf',
+    tds: null,
     msds: null,
     
     seo: {
@@ -1557,7 +1557,7 @@ const PRODUCTS = [
     
     realTalk: 'Small cracks in walls or floors that don\'t need structural repair but collect dirt and look bad. Fill them with this, smooth it out, done.',
     
-    tds: '/assets/tds/fastfix-crackfill.pdf',
+    tds: null,
     msds: null,
     
     seo: {
@@ -1581,7 +1581,7 @@ const PRODUCTS = [
     
     realTalk: 'Structural crack means structural fix. This flows into the tiniest cracks and bonds them back together—restores the original strength.',
     
-    tds: '/assets/tds/fastfix-epoxy-injection.pdf',
+    tds: null,
     msds: null,
     
     seo: {
@@ -1605,7 +1605,7 @@ const PRODUCTS = [
     
     realTalk: 'When machinery weighs hundreds of tons and movement isn\'t acceptable. This provides compressive strength exceeding 70 MPa—doesn\'t budge.',
     
-    tds: '/assets/tds/fastfix-structure-grout.pdf',
+    tds: null,
     msds: null,
     
     seo: {
@@ -1633,7 +1633,7 @@ const PRODUCTS = [
     
     realTalk: 'Your concrete absorbs water, oil, and stains. One coat of this seals the surface—liquids bead up instead of soaking in.',
     
-    tds: '/assets/tds/hardseal-wb100.pdf',
+    tds: null,
     msds: null,
     
     seo: {
@@ -1657,7 +1657,7 @@ const PRODUCTS = [
     
     realTalk: 'You paid premium for that stone flooring. This enhances the color and protects against stains—keeps it looking expensive.',
     
-    tds: '/assets/tds/hardseal-sb200.pdf',
+    tds: null,
     msds: null,
     
     seo: {
@@ -1681,7 +1681,7 @@ const PRODUCTS = [
     
     realTalk: 'Your floor takes chemical spills and heavy traffic daily. This creates a tough, flexible shield that handles abuse without peeling.',
     
-    tds: '/assets/tds/hardseal-pu300.pdf',
+    tds: null,
     msds: null,
     
     seo: {
@@ -1705,7 +1705,7 @@ const PRODUCTS = [
     
     realTalk: 'Carbonation corrodes rebar from the inside out. This coating blocks CO2 from entering concrete—stops the corrosion before it starts.',
     
-    tds: '/assets/tds/hardseal-ac200.pdf',
+    tds: null,
     msds: null,
     
     seo: {
@@ -1729,7 +1729,7 @@ const PRODUCTS = [
     
     realTalk: 'Stone absorbs moisture and stains deep inside. This penetrates and seals from within—protection without changing the appearance.',
     
-    tds: '/assets/tds/hardseal-stone.pdf',
+    tds: null,
     msds: null,
     
     seo: {
@@ -1753,7 +1753,7 @@ const PRODUCTS = [
     
     realTalk: 'Your white grout turned brown in 6 months. Seal it with this and stains wipe off—grout stays clean like day one.',
     
-    tds: '/assets/tds/hardseal-tile.pdf',
+    tds: null,
     msds: null,
     
     seo: {
@@ -1777,7 +1777,7 @@ const PRODUCTS = [
     
     realTalk: 'Concrete dust everywhere, stains won\'t come out, surface is porous. This seals it, stops the dust, makes cleaning easy.',
     
-    tds: '/assets/tds/hardseal-concrete.pdf',
+    tds: null,
     msds: null,
     
     seo: {
@@ -1801,7 +1801,7 @@ const PRODUCTS = [
     
     realTalk: 'Rain soaks into your concrete and causes problems. This makes water bead off like a freshly waxed car—concrete stays dry.',
     
-    tds: '/assets/tds/hardseal-silane.pdf',
+    tds: null,
     msds: null,
     
     seo: {
@@ -1825,7 +1825,7 @@ const PRODUCTS = [
     
     realTalk: 'Your brick wall absorbs rain and develops efflorescence (white powder). This stops water entry while letting the wall breathe.',
     
-    tds: '/assets/tds/hardseal-siloxane.pdf',
+    tds: null,
     msds: null,
     
     seo: {
@@ -1849,7 +1849,7 @@ const PRODUCTS = [
     
     realTalk: 'Your warehouse floor creates dust clouds every time a forklift moves. One treatment stops the dusting permanently—cleaner air, cleaner products.',
     
-    tds: '/assets/tds/hardseal-dustproof.pdf',
+    tds: null,
     msds: null,
     
     seo: {
@@ -1877,7 +1877,7 @@ const PRODUCTS = [
     
     realTalk: 'You just spent ₹2 lakh on those beautiful pavers. Don\'t let stains, moss, and weather ruin them in 6 months. One coat keeps them showroom-new for years.',
     
-    tds: '/assets/tds/paveguard-wb.pdf',
+    tds: null,
     msds: null,
     
     seo: {
@@ -1901,7 +1901,7 @@ const PRODUCTS = [
     
     realTalk: 'Want that "wet look" permanent shine on your pavers? This gives you showroom gloss that makes colors pop. Premium finish.',
     
-    tds: '/assets/tds/paveguard-sb.pdf',
+    tds: null,
     msds: null,
     
     seo: {
@@ -1925,7 +1925,7 @@ const PRODUCTS = [
     
     realTalk: 'Your colored pavers faded to dull grey. This brings the color back and seals it in—looks like they were just installed.',
     
-    tds: '/assets/tds/paveguard-color.pdf',
+    tds: null,
     msds: null,
     
     seo: {
@@ -1949,7 +1949,7 @@ const PRODUCTS = [
     
     realTalk: 'Your stamped concrete pattern cost extra. This protects the surface texture and keeps colors vibrant—investment protected.',
     
-    tds: '/assets/tds/paveguard-stamp.pdf',
+    tds: null,
     msds: null,
     
     seo: {
@@ -1973,7 +1973,7 @@ const PRODUCTS = [
     
     realTalk: 'Decorative concrete still needs to be hard. This makes the surface durable while maintaining the decorative finish—beauty plus strength.',
     
-    tds: '/assets/tds/paveguard-hardener.pdf',
+    tds: null,
     msds: null,
     
     seo: {
@@ -1997,7 +1997,7 @@ const PRODUCTS = [
     
     realTalk: 'Prevents stamps from sticking to wet concrete. Adds color tones for realistic stone/brick appearance. Essential for stamping.',
     
-    tds: '/assets/tds/paveguard-release.pdf',
+    tds: null,
     msds: null,
     
     seo: {
@@ -2021,7 +2021,7 @@ const PRODUCTS = [
     
     realTalk: 'Creates translucent color effects in concrete—not opaque like paint. For polished floors or artistic installations that need depth.',
     
-    tds: '/assets/tds/paveguard-dye.pdf',
+    tds: null,
     msds: null,
     
     seo: {
@@ -2049,7 +2049,7 @@ const PRODUCTS = [
     
     realTalk: 'Sports flooring is a system—skip the primer and your expensive topcoat fails in one season. Foundation matters.',
     
-    tds: '/assets/tds/sporteyflor-primer.pdf',
+    tds: null,
     msds: null,
     
     seo: {
@@ -2073,7 +2073,7 @@ const PRODUCTS = [
     
     realTalk: 'This layer provides the texture and performance. Ball bounce, player traction—it all depends on proper base coat application.',
     
-    tds: '/assets/tds/sporteyflor-basecoat.pdf',
+    tds: null,
     msds: null,
     
     seo: {
@@ -2097,7 +2097,7 @@ const PRODUCTS = [
     
     realTalk: 'Reduces joint stress on players. The difference between a court that feels like concrete and one athletes actually want to play on.',
     
-    tds: '/assets/tds/sporteyflor-cushion.pdf',
+    tds: null,
     msds: null,
     
     seo: {
@@ -2121,7 +2121,7 @@ const PRODUCTS = [
     
     realTalk: 'The layer players see and play on. UV resistant, non-slip, proper ball bounce. This is what determines court quality.',
     
-    tds: '/assets/tds/sporteyflor-topcoat.pdf',
+    tds: null,
     msds: null,
     
     seo: {
@@ -2145,7 +2145,7 @@ const PRODUCTS = [
     
     realTalk: 'Crisp white lines that don\'t fade, chip, or blur. Permanent markings that withstand UV and foot traffic for years.',
     
-    tds: '/assets/tds/sporteyflor-line.pdf',
+    tds: null,
     msds: null,
     
     seo: {
@@ -2169,7 +2169,7 @@ const PRODUCTS = [
     
     realTalk: 'Professional-grade track surface. Proper energy return, weather resistant, consistent performance. What Olympic athletes train on.',
     
-    tds: '/assets/tds/sporteyflor-track.pdf',
+    tds: null,
     msds: null,
     
     seo: {

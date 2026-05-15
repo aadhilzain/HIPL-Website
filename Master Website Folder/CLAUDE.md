@@ -6,300 +6,196 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Overview
 
-**Hardex India Website** — A token-optimized static website for a construction chemicals company. Design philosophy: all content lives in **two source-of-truth config files**, with HTML/CSS/JS as rendering shells that consume this data.
-
-**Key Files:**
-- `config/products-data.js` — All product info (add/edit products here)
-- `config/site-config.js` — Company info, colors, navigation (site-wide defaults)
-- `css/styles.css` — Main stylesheet (responsive, CSS variables for theming)
-- `js/main.js` — Navigation, forms, event handling
-- `components/` — Reusable JavaScript components (product-cards, seo, tooltips)
-
-**Current Status:** Pre-deployment (all features working, DNS + hosting next)
+**Hardex India Private Limited (HIPL) website** — a vanilla HTML/CSS/JS static site. No build step; files open directly in a browser. All product and company content lives in config files; HTML pages are rendering shells.
 
 ---
 
-## Common Development Tasks
+## Architecture
 
-### Adding a Product
-
-Edit `config/products-data.js`. Copy the template at the bottom of the PRODUCTS array:
-
-```javascript
-{
-  id: 'lowercase-hyphenated-id',
-  name: 'PRODUCT NAME',
-  icon: '🛡️',
-  category: 'Category',
-  subcategory: 'Type',
-  featured: true/false,
-  shortDesc: 'Brief description',
-  application: 'Where it goes',
-  coverage: '1.5-2 kg/m²',
-  tds: '/assets/tds/product-id.pdf',  // or null
-  msds: null,
-  seo: {
-    title: 'SEO Title | Hardex India',
-    description: 'Meta description...',
-    keywords: ['waterproofing', '...']
-  }
-}
-```
-
-**Result:** Auto-updates homepage, products page, navigation dropdowns, SEO tags. **Cost:** ~200 tokens per batch.
-
----
-
-### Changing Company Info
-
-Edit `config/site-config.js`:
-- Company name, tagline, founding year → `company` object
-- Contact details → `contact` object
-- Colors (primary, dark, accent) → `colors` object
-- Navigation items → `navigation` array
-- Hours → `hours` object
-
-**Result:** All pages automatically reflect changes. **Cost:** ~100 tokens.
-
----
-
-### Updating Site-Wide Color Scheme
-
-1. Edit `config/site-config.js` → `colors` object
-2. CSS will automatically use these via JavaScript or reference `css/styles.css` CSS variables
-
-If editing CSS directly, update `:root` variables in `css/styles.css` (e.g., `--primary: #00BCD4`).
-
-**Cost:** ~100 tokens.
-
----
-
-### Adding a New Page
-
-1. Copy `products.html` or `index.html`
-2. Update the `<title>`, hero section, main content
-3. Keep `<script>` tags for config and components
-4. Add link to `config/site-config.js` navigation array
-
-**Cost:** ~300-500 tokens.
-
----
-
-### Modifying Styling
-
-Edit `css/styles.css`:
-- **Component styles:** `.hero`, `.product-card`, `.tooltip`, etc.
-- **CSS Variables:** All colors defined at `:root` — change once, updates everywhere
-- **Responsive:** Mobile-first approach, `@media` queries for desktop
-
-**Cost:** 300-1000 tokens depending on scope.
-
----
-
-### Testing Changes Locally
-
-Before deploying:
-1. Open `index.html` in a browser (or use a local server)
-2. Check featured products appear → ✓
-3. Navigate to `products.html` → check full catalog by category
-4. Test mobile menu (resize to <768px)
-5. Hover/tap product cards → tooltips show TDS/MSDS links
-6. Click navigation links → smooth scroll and active highlighting
-7. Check page source (`Ctrl+U`) → verify `<meta>` SEO tags are present
-
----
-
-## Architecture Principles
-
-### Data-Driven Rendering
+### Data flow
 
 ```
-products-data.js → product-cards.js → index.html + products.html
-site-config.js → All pages (footer, nav, colors, company info)
+config/products-data.js  (96 products, PRODUCTS[])
+      ↓
+components/product-cards.js   → products.html (filterable catalog grid)
+components/shared-nav.js      → every page (nav dropdowns + Bob widget)
+components/seo.js             → every page (<meta> tags)
+
+config/products-config.js  (TDS_PRODUCTS{} — detailed TDS/MSDS specs for hero products)
+      ↓
+assets/tds/tdsData.js         → assets/tds/index.html (TDS viewer)
+assets/tds/tds-*.html         → individual rendered TDS pages
+
+config/solutions-data.js  (SOLUTIONS[])
+      → solutions.html + solution-*.html pages
+
+config/site-config.js  (SITE_CONFIG — company info, contact, social)
+      → footer, contact page, SEO defaults
+
+config/dealers-data.js  (DEALERS[], REGIONS[])
+      → dealers.html
 ```
 
-When you edit `products-data.js`, these components automatically re-render:
-- Homepage featured product grid
-- Products page catalog (by category)
-- Navigation dropdown (Products section)
-- SEO meta tags for each product
-
-### Component System
-
-| Component | Purpose | Cost to Modify |
-|-----------|---------|----------------|
-| `product-cards.js` | Renders product grid from data | 300-500 tokens |
-| `seo.js` | Auto-generates meta tags | 300 tokens |
-| `tooltip.js` + `tooltip.css` | Product hover/tap details | 200-300 tokens |
-| `shared-nav.js` | Navigation injection | 200-400 tokens |
-
-### Script Load Order (Important!)
+### Script load order (critical — mis-ordering causes undefined-variable errors)
 
 ```html
 <head>
-  <script src="config/site-config.js"></script>     <!-- 1st: globals -->
-  <script src="config/products-data.js"></script>   <!-- 2nd: data -->
-  <link href="css/styles.css">                      <!-- CSS -->
-  <script src="components/seo.js" defer></script>   <!-- 3rd: SEO -->
+  <script src="config/site-config.js"></script>    <!-- 1st -->
+  <script src="config/products-data.js"></script>  <!-- 2nd -->
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="components/seo.js" defer></script>  <!-- 3rd -->
 </head>
-
 <body>
-  <!-- HTML content -->
-  <script src="js/main.js" defer></script>          <!-- 4th: behavior -->
+  <div id="shared-nav"></div>
+  <!-- page content -->
+  <script src="components/shared-nav.js" defer></script>  <!-- 4th -->
+  <script src="js/main.js" defer></script>                <!-- 5th -->
 </body>
 ```
 
-Mis-ordered scripts → undefined variables. Always load config before data before components.
-
 ---
 
-## File Structure Reference
+## Config Files — Sources of Truth
 
-```
-hardex-website/
-├── *.html                    # Shell pages (index, products, solutions, etc.)
-├── config/
-│   ├── products-data.js      ⭐ Products (add/edit here)
-│   ├── products-config.js    # Product category labels/icons
-│   ├── solutions-data.js     # Solutions page content
-│   ├── dealers-data.js       # Dealer info
-│   └── site-config.js        ⭐ Company info, colors, navigation
-├── components/
-│   ├── shared-nav.js         # Navigation component
-│   ├── product-cards.js      # Product grid renderer
-│   ├── seo.js                # Auto-generated meta tags
-│   ├── tooltip.js            # Product detail tooltips
-│   └── tooltip.css
-├── css/
-│   ├── styles.css            # Main stylesheet
-│   └── pages.css             # Page-specific styles
-├── js/
-│   └── main.js               # Global behavior
-├── assets/
-│   ├── images/               # Images (logo, backgrounds)
-│   ├── icons/                # Icon files
-│   └── tds/, msds/           # Product PDFs
-└── Documentation/
-    ├── ARCH.md               # Detailed architecture (read if you need context)
-    └── TOKEN-COST-CALCULATOR.md  # Iteration cost breakdown
-```
+### `config/products-data.js` — `PRODUCTS[]` (96 products)
 
----
-
-## Key Concepts
-
-### "Source of Truth" Pattern
-
-The site uses **only 2 source-of-truth files**:
-1. **products-data.js** — Edit this. Every product reference everywhere updates automatically.
-2. **site-config.js** — Edit this. Company colors, names, navigation, all pages update.
-
-**Never hardcode product names or company info into HTML.** Reference config instead.
-
-### CSS Variables for Theming
-
-All brand colors are CSS variables at `:root`:
-```css
-:root {
-  --primary: #00A99D;
-  --primary-dark: #007A72;
-  --primary-light: #00D9CC;
-  /* ... more colors ... */
+Each product object shape:
+```javascript
+{
+  id: 'hp410-coolcoat',          // kebab-case, used in product-detail.html?id=
+  name: 'HARDPROOF COOLCOAT',
+  icon: '🎨',                    // emoji (legacy — do not add to new design work)
+  category: 'Waterproofing',     // drives filter tabs on products.html
+  subcategory: 'Elastomeric Coatings',
+  featured: true,                // shows on homepage hero grid
+  shortDesc: '...',              // professional one-liner shown on cards
+  realTalk: '...',               // collapsible honest copy shown on product-detail.html
+  application: '...',
+  coverage: '1.5–2.0 kg/m²',
+  tds: '/assets/tds/tds-hf100.html',  // null if not yet available
+  msds: null,
+  seo: { title: '...', description: '...', keywords: [] }
 }
 ```
 
-Change `--primary` → every `.btn-primary`, `border-color: var(--primary)`, etc. updates everywhere.
+**8 product categories:** Waterproofing · Flooring Systems · Repair Systems · Epoxy Systems · Concrete Admixtures · Surface Protection · Decorative Concrete · Sports Flooring
 
-### Mobile-First Responsive Design
+### `config/products-config.js` — `TDS_PRODUCTS{}` (5 hero products, full specs)
 
-- Base styles = mobile view
-- `@media (min-width: 768px)` = tablet/desktop adjustments
-- **Always test on mobile.** Resize browser to <480px and verify layout.
+Separate from `products-data.js`. Contains complete TDS + MSDS data (physical properties, application, drying times, packaging, hazards, first aid, PPE) for the 5 products with finished data sheets. Used by `assets/tds/tdsData.js` to render TDS pages. Add new entries using the skeleton at the bottom of the file.
 
----
+### `config/site-config.js` — `SITE_CONFIG`
 
-## Deployment
+Company name, contact (phone, WhatsApp, email), address, hours, social links, SEO domain. Edit here; all pages auto-reflect.
 
-### Current Status
-- ✅ Domain secured: `hardexindia.com`
-- ❌ DNS configured (pending)
-- ❌ Hosted (recommended: Netlify or Vercel)
+### `config/solutions-data.js` — `SOLUTIONS[]`
 
-### Deploy to Netlify (Recommended)
-1. Go to [netlify.com](https://netlify.com)
-2. Sign up (free)
-3. Drag-drop entire website folder
-4. Configure DNS at your domain registrar to point to Netlify
-5. Done — auto-scaling, edge caching included
+9 solution categories. Each links to a `solution-*.html` page. Note: one solution page is named `solutions-terrace-waterproofing.html` (plural) while the rest are `solution-*.html` (singular) — don't normalise without updating all references in `shared-nav.js` and `solutions-data.js`.
 
-### Deploy to Vercel
-Same as Netlify, but with Vercel UI.
+### `config/dealers-data.js` — `DEALERS[]`, `REGIONS[]`
 
-### GitHub Pages (if Git available)
-Push entire folder to GitHub, enable Pages in repo settings.
+Dealer/distributor records. Currently only HQ placeholder — add real dealers here.
 
 ---
 
-## Token Cost Guidance
+## Components
 
-When asking Claude for changes, **be specific**:
+### `components/shared-nav.js`
 
-✅ **Efficient:** "Add product to products-data.js" (~200 tokens)  
-✅ **Efficient:** "Change site-config.js colors.primary to #FF5722" (~100 tokens)  
-✅ **Efficient:** "Update line 45 of index.html" (~150 tokens)  
+Self-contained — injects its own CSS, nav HTML, mobile drawer, and the **Bob chatbot widget** (floating button + iframe panel) into every page that has `<div id="shared-nav"></div>`. Does not depend on any other component at runtime.
 
-❌ **Wasteful:** "Regenerate index.html" (~1000+ tokens)  
-❌ **Wasteful:** "Update the whole site" (~3000+ tokens)  
+**Bob widget globals** (available on every page after shared-nav loads):
+- `hxToggleBob()` — opens/closes the chat panel
+- `hxAskBob(msg)` — opens panel and pre-fills a message (used by solution page CTAs)
 
-**Rule:** Edit specific lines in data/config files. Avoid regenerating entire HTML files.
+The Bob panel is an iframe pointing to `bob.html`. `shared-nav.js` skips injecting the float button on `bob.html` itself to avoid nesting.
 
----
+### `components/product-cards.js`
 
-## Troubleshooting
+Reads `window.PRODUCTS`, renders a sticky category filter bar and a product grid into `#all-products-grid`. Filter state syncs to the URL via `?cat=slug`. Cards link to `product-detail.html?id=PRODUCT-ID`.
 
-### Products don't appear on homepage
-- Check `featured: true` in `products-data.js`
-- Verify `config/products-data.js` loads before `components/product-cards.js`
-- Check browser console for errors
+### `components/seo.js`
 
-### Navigation links inactive
-- Check `config/site-config.js` navigation array matches `*.html` filenames
-- Verify `js/main.js` page detection logic (detects current page from URL)
+Injects `<meta>` tags and JSON-LD from each product's `seo` object. Must load after `products-data.js`.
 
-### Tooltips don't show
-- Ensure `components/tooltip.js` and `tooltip.css` load
-- Check `products-data.js` has `tds` or `msds` URLs
-- Verify CSS z-index isn't buried (tooltip has `z-index: 1000`)
+### `components/tooltip.js` / `tooltip.css`
 
-### SEO meta tags missing
-- Verify `components/seo.js` has `seo` object in product data
-- Check page source (`Ctrl+U`) for `<meta>` tags — they won't render visually
-- Google/social media may cache old tags — wait 24h or use their preview tools
+Legacy hover/tap tooltip for TDS/MSDS links. Still present but superseded on newer pages by the product-detail page pattern.
 
 ---
 
-## Related Documentation
+## Page Patterns
 
-For deeper context, see:
-- **ARCH.md** — Complete architecture reference, component details, deployment paths
-- **TOKEN-COST-CALCULATOR.md** — Token cost breakdown and iteration strategy
-- **bob.html** — Chatbot integration (currently disabled)
+### `product-detail.html`
 
----
+Reads `?id=` from URL, finds the product in `PRODUCTS`, renders the full detail view. Includes a collapsible **RealTalk** block (`realTalk` field) styled in dark navy with yellow border.
 
-## Quick Reference
+### `assets/tds/index.html` + `tdsData.js`
 
-| Task | File | Cost |
-|------|------|------|
-| Add product | `config/products-data.js` | 200 tokens |
-| Change company name | `config/site-config.js` | 100 tokens |
-| Change primary color | `config/site-config.js` | 100 tokens |
-| Update product category | `config/products-config.js` | 100 tokens |
-| Modify button styles | `css/styles.css` | 300-500 tokens |
-| Add navigation link | `config/site-config.js` | 100 tokens |
-| Redesign product cards | `components/product-cards.js` + CSS | 400-600 tokens |
-| Add new page | Copy HTML, update nav | 300-500 tokens |
+Standalone TDS viewer (separate from the main site CSS). Reads `?product=` from URL, looks up `TDS_PRODUCTS`, calls `createTds()` to render the HTML document. Individual pre-rendered TDS pages live alongside it as `tds-*.html`.
+
+### `downloads.html`
+
+Searchable, filterable table of all TDS/MSDS documents. Built from `PRODUCTS` at runtime — no separate data file.
+
+### Solution pages (`solution-*.html`)
+
+9 pages, one per solution category. Each has a CTA that calls `hxAskBob(msg)` to open Bob with a pre-filled message. All use `<div id="shared-nav"></div>` + `shared-nav.js`.
 
 ---
 
-**Built for token efficiency, designed for scale, ready for production.**
+## Styling
+
+### Fonts (Google Fonts, loaded in HTML `<head>`)
+
+- **Bebas Neue** — display headings (`--font-disp`)
+- **DM Sans** — body text (`--font-body`)
+- **DM Mono** — spec data, codes, monospace labels (`--font-mono`)
+
+### CSS variables (defined in `css/styles.css` `:root`)
+
+```css
+--teal: #00a99d;       /* primary brand / CTA / active states */
+--navy: #0d1b26;       /* dark backgrounds, nav */
+--yellow: #f0c330;     /* Bob widget accent, highlights */
+--bg-off: #f9f9f7;     /* page background tint */
+--font-disp / --font-body / --font-mono
+--nav-h: 72px;         /* must match shared-nav.js --hn-h: 64px (nav uses its own var) */
+--max-w: 1200px;
+```
+
+Note: `shared-nav.js` injects its own `:root { --hn-h: 64px }` — the nav height it uses is 64px, not the `--nav-h: 72px` in `styles.css`. `body { padding-top }` in `styles.css` uses `var(--nav-h)` while the nav itself uses `var(--hn-h)`.
+
+### `css/pages.css`
+
+Page-specific styles for inner pages (breadcrumbs, page heroes, solution layouts, product detail, etc.). Loaded in addition to `styles.css` on non-homepage pages.
+
+---
+
+## Testing Locally
+
+No build step. Open any `.html` file directly in a browser, or serve with:
+```
+npx serve "Master Website Folder"
+# or
+python3 -m http.server 8000
+```
+
+Key checks:
+- Products render on `products.html` — filter tabs work, clicking a card navigates to `product-detail.html?id=`
+- Mobile drawer opens at <900px
+- Bob float button appears on all pages except `bob.html`; `hxAskBob('test')` from console opens and pre-fills
+- TDS viewer: `assets/tds/index.html?product=hp410-coolcoat` renders a full TDS
+- Downloads table on `downloads.html` populates from PRODUCTS
+
+---
+
+## Adding Content
+
+**Add a product:** Edit `config/products-data.js`. A product with `featured: true` appears on the homepage grid. `tds` path should point to either a `/assets/tds/tds-*.html` page or `null`.
+
+**Add a TDS page:** Add the product's full spec data to `config/products-config.js` (`TDS_PRODUCTS`), then create a `assets/tds/tds-PRODUCTID.html` using the existing ones as a template (they call `tdsData.js` to render).
+
+**Add a dealer:** Edit `config/dealers-data.js`, add to `DEALERS[]`.
+
+**Add a solution page:** Copy an existing `solution-*.html`, update content, add to `config/solutions-data.js` and `shared-nav.js` (`SOLUTION_ITEMS` array).

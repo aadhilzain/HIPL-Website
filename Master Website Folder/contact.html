@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact Us | Hardex India</title>
   <meta name="description" content="Get in touch with Hardex India for technical consultation, product samples, dealer inquiries, or bulk pricing.">
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -110,6 +110,8 @@
 
 <div id="shared-footer"></div>
 
+<script src="config/site-config.js"></script>
+<script src="config/products-data.js"></script>
 <script src="components/shared-nav.js"></script>
 <script>
 (function () {
@@ -132,7 +134,7 @@
       e.preventDefault();
       status.style.display = 'block';
       status.style.color   = '#c0392b';
-      status.innerHTML     = '⚠️ Contact form not yet connected.<br>Please call us at <a href="tel:+919656866699" style="color:#00a99d;font-weight:700">+91 96568 66699</a> or email <a href="mailto:info@hardexindia.com" style="color:#00a99d">info@hardexindia.com</a>';
+      status.innerHTML     = '⚠️ Contact form not yet connected.<br>Please call us at <a href="tel:+919656866699" style="color:var(--hardex-green-600);font-weight:700">+91 96568 66699</a> or email <a href="mailto:info@hardexindia.com" style="color:var(--hardex-green-600)">info@hardexindia.com</a>';
       return;
     }
 
@@ -172,7 +174,7 @@
       btn.disabled    = false;
       status.style.display = 'block';
       status.style.color   = '#c0392b';
-      status.innerHTML     = 'Something went wrong. Please call us at <a href="tel:+919656866699" style="color:#00a99d">+91 96568 66699</a>.';
+      status.innerHTML     = 'Something went wrong. Please call us at <a href="tel:+919656866699" style="color:var(--hardex-green-600)">+91 96568 66699</a>.';
     });
   });
 

@@ -5,56 +5,48 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hardex India | Construction Chemicals &amp; Industrial Coatings</title>
   <meta name="description" content="Hardex India — 150+ construction chemical formulations since 1980. Waterproofing, industrial coatings, epoxy flooring. Manufactured in-house, documented to spec.">
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
+  <script src="config/site-config.js"></script>
+  <script src="config/products-data.js"></script>
 </head>
 <body>
 
 <div id="shared-nav"></div>
 
-<!-- HERO -->
+<!-- ── HERO ── -->
 <section class="hero">
-  <div class="hero-l">
-    <div class="hero-kicker">
-      <div class="k-bar"></div>
-      <span class="k-txt">Construction Chemicals · Est. 1980</span>
-    </div>
-    <h1 class="hero-h1">
-      <span>Build</span>
-      <span class="t">Harder.</span>
-      <span>Last</span>
-      <span>Longer.</span>
-    </h1>
-    <p class="hero-p">150+ construction chemical formulations engineered for India's toughest conditions. Waterproofing to industrial coatings — manufactured in-house, documented to spec.</p>
-    <div class="hero-actions">
-      <a href="products.html" class="btn-primary">Explore Products →</a>
-      <a href="contact.html" class="btn-ghost">Request a Sample</a>
-    </div>
-    <div class="hero-stats">
-      <div class="h-stat">
-        <div class="h-stat-n">150<span>+</span></div>
-        <div class="h-stat-l">Formulations</div>
+  <div class="hero-inner">
+    <!-- Left column -->
+    <div>
+      <div class="hero-eyebrow">
+        <span class="hero-eyebrow-dot"></span>
+        <span class="hero-eyebrow-text">Construction Chemicals · Est. 1980</span>
       </div>
-      <div class="h-stat">
-        <div class="h-stat-n">Pan-<span>India</span></div>
-        <div class="h-stat-l">Distribution</div>
-      </div>
-      <div class="h-stat">
-        <div class="h-stat-n">Since <span>1980</span></div>
-        <div class="h-stat-l">Manufacturing</div>
+      <h1 class="hero-h1">
+        Build Harder.<br><span class="accent">Last Longer.</span>
+      </h1>
+      <p class="hero-p">150+ construction chemical formulations engineered for India's toughest conditions. Waterproofing to industrial coatings — manufactured in-house, documented to spec.</p>
+      <div class="hero-actions">
+        <a href="products.html" class="btn-primary">Explore Products →</a>
+        <a href="contact.html" class="btn-outline">Request a Sample</a>
       </div>
     </div>
-  </div>
 
-  <div class="hero-r">
-    <div class="hero-r-eye"></div>
-    <div class="cert-pip">Since<br>1980<br>&#10003;</div>
-    <div class="dark-label">Featured Products</div>
-    <div class="feat-stack" id="featured-products"></div>
+    <!-- Right column — stat panel -->
+    <div class="hero-stat-panel">
+      <div class="hero-stat-n"><span id="hero-stat-count">96</span><span class="accent">+</span></div>
+      <p class="hero-stat-label">Construction chemical formulations engineered for India's toughest conditions.</p>
+      <div class="hero-stat-badges">
+        <span class="hero-badge">LOW VOC ✓</span>
+        <span class="hero-badge">TDS + MSDS Ready</span>
+        <span class="hero-badge">ISO Certified</span>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- TRUST TICKER -->
+<!-- ── TRUST TICKER ── -->
 <div class="trust">
   <div class="trust-inner">
     <div class="t-item"><div class="t-dot"></div><span class="t-txt">Manufacturing Excellence Since 1980</span></div>
@@ -76,11 +68,25 @@
   </div>
 </div>
 
-<!-- ABOUT -->
+<!-- ── FEATURED PRODUCTS ── -->
+<section class="featured-products">
+  <div class="featured-header">
+    <div>
+      <div class="sec-label"><div class="sl-bar"></div><span class="sl-txt">Featured Products</span></div>
+      <h2 class="sec-h">Products Built for<br>Indian Conditions.</h2>
+    </div>
+    <a href="products.html" class="btn-outline">Full Catalog →</a>
+  </div>
+  <div class="fp-grid" id="featured-products-grid">
+    <!-- Populated by JS below -->
+  </div>
+</section>
+
+<!-- ── ABOUT ── -->
 <section class="sec" style="padding:0">
   <div class="about">
     <div class="about-dark">
-      <div class="about-big-n">150+</div>
+      <div class="about-big-n" id="about-product-count">150+</div>
       <div class="about-big-l">Formulations in Portfolio</div>
       <div class="about-stat-row">
         <div>
@@ -114,7 +120,7 @@
   </div>
 </section>
 
-<!-- SOLUTIONS -->
+<!-- ── SOLUTIONS ── -->
 <section class="solutions">
   <div class="sol-header">
     <div>
@@ -124,91 +130,112 @@
     <p class="sec-sub">From foundation to finish — comprehensive solutions for every construction challenge.</p>
   </div>
   <div class="sol-grid">
-    <a href="products.html" class="sol-card-link">
+    <a href="solutions-terrace-waterproofing.html" class="sol-card-link">
       <div class="sol-card">
-        <div class="sol-icon-svg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/><path d="M12 2v10"/></svg></div>
+        <div class="sol-icon-svg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
         <div class="sol-name">Waterproofing Systems</div>
-        <div class="sol-desc">Complete waterproofing solutions for roofs, terraces, basements, and facades.</div>
+        <div class="sol-desc">Terraces, basements, bathrooms, water tanks. Complete multi-layer systems with 10+ year durability.</div>
+        <span class="sol-chip">Explore →</span>
       </div>
     </a>
-    <a href="products.html" class="sol-card-link">
+    <a href="solution-industrial-flooring.html" class="sol-card-link">
       <div class="sol-card">
         <div class="sol-icon-svg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg></div>
         <div class="sol-name">Industrial Flooring</div>
-        <div class="sol-desc">Heavy-duty epoxy and polyurethane flooring systems for warehouses and manufacturing.</div>
+        <div class="sol-desc">Heavy-duty epoxy and polyurethane flooring systems for warehouses and manufacturing facilities.</div>
+        <span class="sol-chip">Explore →</span>
       </div>
     </a>
-    <a href="products.html" class="sol-card-link">
+    <a href="solution-concrete-repair.html" class="sol-card-link">
       <div class="sol-card">
         <div class="sol-icon-svg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
         <div class="sol-name">Repair &amp; Rehabilitation</div>
-        <div class="sol-desc">Structural repair compounds, grouts, and rehabilitation systems for concrete.</div>
+        <div class="sol-desc">Structural repair compounds, grouts, and rehabilitation systems for damaged or ageing concrete.</div>
+        <span class="sol-chip">Explore →</span>
       </div>
     </a>
-    <a href="products.html" class="sol-card-link">
+    <a href="solution-protective-coatings.html" class="sol-card-link">
       <div class="sol-card">
         <div class="sol-icon-svg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
         <div class="sol-name">Protective Coatings</div>
-        <div class="sol-desc">Anti-corrosive and protective coatings for industrial and marine environments.</div>
+        <div class="sol-desc">Anti-corrosive and protective coatings for industrial, marine, and high-exposure environments.</div>
+        <span class="sol-chip">Explore →</span>
       </div>
     </a>
   </div>
+  <div style="text-align:center;margin-top:40px;">
+    <a href="solutions.html" class="btn-primary">All 9 Solutions →</a>
+  </div>
 </section>
 
-<!-- CONTACT -->
+<!-- ── CONTACT ── -->
 <section class="contact">
   <div class="contact-wrapper">
-    <div class="contact-left">
+    <div>
       <div class="sec-label"><div class="sl-bar"></div><span class="sl-txt">Contact Us</span></div>
       <h2 class="sec-h">Let's Build<br>Something<br>Together.</h2>
       <p class="contact-text">Need technical support, product samples, or custom formulations? Our team is here to help.</p>
       <div class="contact-info">
         <div class="contact-item">
-          <div class="contact-icon">✉</div>
+          <div class="contact-icon-wrap">✉</div>
           <div>
             <div class="contact-label">Email</div>
-            <div class="contact-value"><a href="mailto:info@hardex.me">info@hardex.me</a></div>
+            <div class="contact-value"><a href="mailto:info@hardexindia.com" id="contact-email">info@hardexindia.com</a></div>
           </div>
         </div>
         <div class="contact-item">
-          <div class="contact-icon">☎</div>
+          <div class="contact-icon-wrap">☎</div>
           <div>
             <div class="contact-label">Phone</div>
-            <div class="contact-value">+91 96568 66699</div>
+            <div class="contact-value" id="contact-phone">+91 96568 66699</div>
           </div>
         </div>
         <div class="contact-item">
-          <div class="contact-icon">📍</div>
+          <div class="contact-icon-wrap">📍</div>
           <div>
             <div class="contact-label">Location</div>
-            <div class="contact-value">Pune, Maharashtra, India</div>
+            <div class="contact-value" id="contact-address">Kochi, Kerala, India</div>
           </div>
         </div>
       </div>
     </div>
-    <div class="contact-right">
-      <form class="contact-form" id="contactForm">
-        <div class="form-group"><input type="text" placeholder="Your Name" required></div>
-        <div class="form-group"><input type="email" placeholder="Email Address" required></div>
-        <div class="form-group"><input type="tel" placeholder="Phone Number"></div>
-        <div class="form-group">
-          <select>
-            <option value="" disabled selected>Select Inquiry Type</option>
-            <option>Product Information</option>
-            <option>Technical Support</option>
-            <option>Request Sample</option>
-            <option>Custom Formulation</option>
-            <option>Dealer Inquiry</option>
-          </select>
-        </div>
-        <div class="form-group"><textarea placeholder="Message" rows="4" required></textarea></div>
-        <button type="submit" class="btn-submit">Send Message →</button>
-      </form>
+    <div>
+      <form class="contact-form" id="contactForm" action="thank-you.html">
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">Your Name</label>
+              <input type="text" name="name" placeholder="Full name" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Phone</label>
+              <input type="tel" name="phone" placeholder="+91 XXXXX XXXXX">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email</label>
+            <input type="email" name="email" placeholder="you@company.com" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Inquiry Type</label>
+            <div class="inquiry-pills" id="inquiryToggles">
+              <button type="button" class="inquiry-pill active" data-val="Product Information">Product Information</button>
+              <button type="button" class="inquiry-pill" data-val="Technical Support">Technical Support</button>
+              <button type="button" class="inquiry-pill" data-val="Request Sample">Request Sample</button>
+              <button type="button" class="inquiry-pill" data-val="Custom Formulation">Custom Formulation</button>
+            </div>
+            <input type="hidden" name="inquiry_type" id="inquiryTypeInput" value="Product Information">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Message</label>
+            <textarea name="message" placeholder="Describe your project or requirement…" rows="4" required></textarea>
+          </div>
+          <button type="submit" class="btn-submit">Send Message →</button>
+        </form>
     </div>
   </div>
 </section>
 
-<!-- FOOTER (inline — shared-nav doesn't need to inject here) -->
+<!-- ── FOOTER ── -->
 <footer class="footer">
   <div class="footer-inner">
     <div class="footer-brand">
@@ -224,11 +251,11 @@
       <li><a href="contact.html">Contact</a></li>
     </ul></div>
     <div class="footer-col"><h4>Products</h4><ul>
-      <li><a href="products.html">Waterproofing</a></li>
-      <li><a href="products.html">Industrial Flooring</a></li>
-      <li><a href="products.html">Repair Systems</a></li>
-      <li><a href="products.html">Protective Coatings</a></li>
-      <li><a href="downloads.html">TDS / MSDS</a></li>
+      <li><a href="products.html?cat=waterproofing">Waterproofing</a></li>
+      <li><a href="products.html?cat=flooring-systems">Industrial Flooring</a></li>
+      <li><a href="products.html?cat=repair-systems">Repair Systems</a></li>
+      <li><a href="products.html?cat=surface-protection">Protective Coatings</a></li>
+      <li><a href="downloads.html">Downloads</a></li>
     </ul></div>
     <div class="footer-col"><h4>Legal</h4><ul>
       <li><a href="#">Privacy Policy</a></li>
@@ -236,45 +263,139 @@
       <li><a href="#">Quality Policy</a></li>
     </ul></div>
   </div>
-  <div class="footer-bottom"><p>&copy; 2026 Hardex India Private Limited. All rights reserved.</p></div>
+  <div class="footer-bottom">
+    <p>&copy; <span id="footer-year">2026</span> Hardex India Private Limited. All rights reserved.</p>
+    <div class="footer-badges">
+      <span>EST. 1980</span>
+      <span style="opacity:0.4">·</span>
+      <span>ISO ✓</span>
+      <span style="opacity:0.4">·</span>
+      <span>LOW VOC</span>
+      <span style="opacity:0.4">·</span>
+      <span>GREEN CHEMISTRY</span>
+    </div>
+  </div>
 </footer>
 
-<script src="config/products-data.js"></script>
-<script src="components/shared-nav.js"></script>
+<script src="components/shared-nav.js" defer></script>
+<script src="js/main.js" defer></script>
+
 <script>
 (function () {
   'use strict';
-  // Featured products carousel
-  var slot = document.getElementById('featured-products');
-  if (!slot || typeof PRODUCTS === 'undefined') return;
-  var featured = PRODUCTS.filter(function(p){ return p.featured; }).slice(0, 4);
-  if (!featured.length) featured = PRODUCTS.slice(0, 4);
-  slot.innerHTML = featured.map(function(p){
-    return '<a href="product-detail.html?id=' + p.id + '" class="feat-card">' +
-      '<div class="feat-icon">' + (p.icon||'🧪') + '</div>' +
-      '<div><div class="feat-name">' + p.name + '</div>' +
-      '<div class="feat-desc">' + p.shortDesc + '</div></div>' +
-      '<div class="feat-tag">' + p.subcategory + '</div>' +
-      '</a>';
-  }).join('');
 
-  // Contact form
-  var form = document.getElementById('contactForm');
-  if (form) {
-    form.addEventListener('submit', function(e){
+  // Populate contact info from SITE_CONFIG if available
+  function initSiteConfig() {
+    var cfg = window.SITE_CONFIG;
+    if (!cfg) return;
+    var el;
+    if (cfg.contact) {
+      if (cfg.contact.email && (el = document.getElementById('contact-email'))) {
+        el.textContent = cfg.contact.email;
+        el.href = 'mailto:' + cfg.contact.email;
+      }
+      if (cfg.contact.phone && (el = document.getElementById('contact-phone'))) {
+        el.textContent = cfg.contact.phone;
+      }
+    }
+    if (cfg.address && (el = document.getElementById('contact-address'))) {
+      el.textContent = cfg.address;
+    }
+  }
+
+  // Featured products grid
+  function renderFeatured() {
+    var products = window.PRODUCTS;
+    if (!products || !products.length) return;
+    var featured = products.filter(function (p) { return p.featured; });
+    if (!featured.length) featured = products.slice(0, 4);
+    featured = featured.slice(0, 4);
+
+    var grid = document.getElementById('featured-products-grid');
+    if (!grid) return;
+
+    // Update hero count and about count from real data
+    var countEl = document.getElementById('hero-stat-count');
+    if (countEl) countEl.textContent = products.length + '+';
+    var aboutEl = document.getElementById('about-product-count');
+    if (aboutEl) aboutEl.textContent = products.length + '+';
+
+    grid.innerHTML = featured.map(function (p) {
+      return '<a href="product-detail.html?id=' + encodeURIComponent(p.id) + '" class="fp-card">' +
+        '<div class="fp-img"><div class="fp-img-bg"></div></div>' +
+        '<div class="fp-body">' +
+          '<span class="fp-badge">' + (p.subcategory || p.category || '') + '</span>' +
+          '<div class="fp-name">' + p.name + '</div>' +
+          '<div class="fp-specs">' +
+            '<div class="fp-spec-row"><span class="fp-spec-key">Coverage</span><span class="fp-spec-val">' + (p.coverage || '—') + '</span></div>' +
+            '<div class="fp-spec-row"><span class="fp-spec-key">Category</span><span class="fp-spec-val">' + (p.category || '—') + '</span></div>' +
+          '</div>' +
+        '</div>' +
+        '<div class="fp-footer">' +
+          '<span class="fp-voc">LOW VOC ✓</span>' +
+          '<span class="fp-tds">Details →</span>' +
+        '</div>' +
+        '</a>';
+    }).join('');
+  }
+
+  // Inquiry type toggles
+  function initInquiryToggles() {
+    var container = document.getElementById('inquiryToggles');
+    var hidden     = document.getElementById('inquiryTypeInput');
+    if (!container || !hidden) return;
+    container.querySelectorAll('.inquiry-pill').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        container.querySelectorAll('.inquiry-pill').forEach(function (b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        hidden.value = btn.getAttribute('data-val');
+      });
+    });
+  }
+
+  // Form submit feedback
+  function initForm() {
+    var form = document.getElementById('contactForm');
+    if (!form) return;
+    form.addEventListener('submit', function (e) {
       e.preventDefault();
-      var btn = form.querySelector('.btn-submit');
+      var btn  = form.querySelector('.btn-submit');
       var orig = btn.textContent;
-      btn.textContent = 'Sending…'; btn.disabled = true;
-      setTimeout(function(){
-        btn.textContent = '✓ Sent!';
-        btn.style.background = '#4CAF50';
-        setTimeout(function(){
-          btn.textContent = orig; btn.style.background = '';
-          btn.disabled = false; form.reset();
+      btn.textContent = 'Sending…';
+      btn.disabled    = true;
+      setTimeout(function () {
+        btn.textContent    = '✓ Sent!';
+        btn.style.background = 'var(--hardex-green-600)';
+        setTimeout(function () {
+          btn.textContent    = orig;
+          btn.style.background = '';
+          btn.disabled       = false;
+          form.reset();
+          document.getElementById('inquiryToggles').querySelectorAll('.inquiry-pill').forEach(function (b, i) {
+            b.classList.toggle('active', i === 0);
+          });
+          document.getElementById('inquiryTypeInput').value = 'Product Information';
         }, 3000);
       }, 1200);
     });
+  }
+
+  // Footer year
+  var yearEl = document.getElementById('footer-year');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+  // Run on ready
+  function init() {
+    initSiteConfig();
+    renderFeatured();
+    initInquiryToggles();
+    initForm();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
   }
 })();
 </script>

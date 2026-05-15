@@ -17,8 +17,8 @@
     /* ── Filter bar ── */
     .category-filter-bar {
       position: sticky; top: 64px;
-      background: #fff;
-      border-bottom: 2px solid #e0e0e0;
+      background: var(--bg-0, #fff);
+      border-bottom: 1px solid var(--border-1, #E8E4D9);
       z-index: 100;
     }
     .filter-container {
@@ -31,17 +31,16 @@
     .filter-container::-webkit-scrollbar { display: none; }
     .filter-tab {
       padding: 14px 24px;
-      border: none; background: #fff;
-      color: #666;
-      font-family: 'Bebas Neue', serif;
-      font-size: 13px; letter-spacing: 0.05em;
+      border: none; background: transparent;
+      color: var(--fg-3, #8C8676);
+      font-family: var(--font-body, 'Manrope', sans-serif);
+      font-size: 13px; font-weight: 500; letter-spacing: 0.01em;
       cursor: pointer; white-space: nowrap;
-      text-transform: uppercase;
-      border-bottom: 3px solid transparent;
-      transition: all 0.2s ease; flex-shrink: 0;
+      border-bottom: 2px solid transparent;
+      transition: all 0.18s ease; flex-shrink: 0;
     }
-    .filter-tab:hover { background: #f5f5f5; color: #00a99d; }
-    .filter-tab.active { color: #00a99d; border-bottom-color: #00a99d; }
+    .filter-tab:hover { color: var(--fg-1, #14130F); background: var(--bg-2, #E8E4D9); }
+    .filter-tab.active { color: var(--hardex-green-600, #0EA160); border-bottom-color: var(--hardex-green-500, #15C172); }
 
     /* ── Grid ── */
     .products-catalog {
@@ -49,16 +48,16 @@
     }
     .category-section { margin-bottom: 50px; }
     .category-section-title {
-      font-family: 'Bebas Neue', serif;
-      font-size: 18px; letter-spacing: 0.05em;
-      color: #1a1a1a; margin-bottom: 10px;
+      font-family: var(--font-display, 'Bricolage Grotesque', sans-serif);
+      font-size: 18px; font-weight: 700; letter-spacing: -0.01em;
+      color: var(--fg-1, #14130F); margin-bottom: 10px;
       padding-bottom: 10px;
-      border-bottom: 2px solid #00a99d;
-      text-transform: uppercase;
+      border-bottom: 2px solid var(--hardex-green-500, #15C172);
     }
     .category-count {
-      font-family: 'DM Mono', monospace;
-      font-size: 11px; color: #999; margin-left: 10px;
+      font-family: var(--font-mono, 'JetBrains Mono', monospace);
+      font-size: 11px; color: var(--fg-3, #8C8676); margin-left: 10px;
+      font-weight: 400;
     }
     .products-grid {
       display: grid;
@@ -68,55 +67,57 @@
 
     /* ── Card ── */
     .product-card {
-      background: #fff;
-      border: 1px solid #e8e8e8;
-      border-radius: 4px; padding: 20px;
-      transition: all 0.25s ease;
+      background: var(--bg-0, #fff);
+      border: 1px solid var(--border-1, #E8E4D9);
+      border-radius: var(--r-md, 12px); padding: 20px;
+      transition: box-shadow 0.22s ease, transform 0.22s ease, border-color 0.22s ease;
       cursor: pointer;
       display: flex; flex-direction: column;
       text-decoration: none; color: inherit;
     }
     .product-card:hover {
-      border-color: #00a99d;
-      box-shadow: 0 4px 12px rgba(0,169,157,0.15);
+      border-color: var(--hardex-green-300, #6FE5A6);
+      box-shadow: var(--shadow-md, 0 6px 18px rgba(20,19,15,0.07));
       transform: translateY(-2px);
     }
-    .product-icon  { font-size: 32px; margin-bottom: 12px; display: block; }
+    .product-icon  { font-size: 28px; margin-bottom: 12px; display: block; }
     .product-subcategory {
-      font-family: 'DM Mono', monospace;
+      font-family: var(--font-mono, 'JetBrains Mono', monospace);
       font-size: 9px; letter-spacing: 0.1em;
-      text-transform: uppercase; color: #00a99d;
-      margin-bottom: 6px; font-weight: 600;
+      text-transform: uppercase; color: var(--hardex-green-600, #0EA160);
+      margin-bottom: 6px; font-weight: 500;
     }
     .product-name {
-      font-family: 'Bebas Neue', serif;
-      font-size: 15px; letter-spacing: 0.05em;
-      color: #1a1a1a; margin-bottom: 10px;
-      line-height: 1.3; text-transform: uppercase;
+      font-family: var(--font-display, 'Bricolage Grotesque', sans-serif);
+      font-size: 15px; font-weight: 700; letter-spacing: -0.01em;
+      color: var(--fg-1, #14130F); margin-bottom: 10px;
+      line-height: 1.25;
     }
     .product-desc {
-      font-size: 12px; line-height: 1.5;
-      color: #666; margin-bottom: 12px; flex-grow: 1;
+      font-family: var(--font-body, 'Manrope', sans-serif);
+      font-size: 12px; line-height: 1.55;
+      color: var(--fg-2, #3D3B33); margin-bottom: 12px; flex-grow: 1;
     }
     .product-coverage {
-      font-family: 'DM Mono', monospace;
-      font-size: 10px; color: #999;
+      font-family: var(--font-mono, 'JetBrains Mono', monospace);
+      font-size: 10px; color: var(--fg-3, #8C8676);
       margin-bottom: 12px;
-      border-top: 1px solid #e8e8e8; padding-top: 12px;
+      border-top: 1px solid var(--border-1, #E8E4D9); padding-top: 12px;
     }
     .product-cta {
-      color: #00a99d; font-weight: 600;
+      color: var(--hardex-green-600, #0EA160); font-weight: 600;
       font-size: 11px; display: flex;
       align-items: center; gap: 6px;
+      font-family: var(--font-body, 'Manrope', sans-serif);
     }
 
     /* ── Empty / loading ── */
     .products-empty {
-      text-align: center; padding: 60px 20px; color: #999;
+      text-align: center; padding: 60px 20px; color: var(--fg-3, #8C8676);
     }
     .products-empty-title {
-      font-family: 'Bebas Neue', serif;
-      font-size: 20px; color: #1a1a1a; margin-bottom: 10px;
+      font-family: var(--font-display, 'Bricolage Grotesque', sans-serif);
+      font-size: 20px; font-weight: 700; color: var(--fg-1, #14130F); margin-bottom: 10px;
     }
 
     /* ── Responsive ── */
@@ -140,9 +141,9 @@
 
   // ── Renderer class ───────────────────────────────────────────────
   function ProductsRenderer() {
-    this.products  = window.PRODUCTS || [];
+    this.products   = window.PRODUCTS || [];
     this.categories = this._extractCategories();
-    this.current   = '';   // active category slug, '' = all
+    this.current    = '';
     this._init();
   }
 
@@ -167,7 +168,6 @@
 
   // ── Filter bar ───────────────────────────────────────────────────
   ProductsRenderer.prototype._injectFilterBar = function () {
-    // Insert the sticky bar before .products-catalog
     var catalog = document.querySelector('.products-catalog') ||
                   document.getElementById('all-products-grid');
     if (!catalog) return;
@@ -180,12 +180,10 @@
     var container = document.getElementById('hx-filter-tabs');
     var self = this;
 
-    // "All" tab
     var allTab = this._makeTab('All Products', '', true);
     allTab.addEventListener('click', function () { self._switch(''); });
     container.appendChild(allTab);
 
-    // Category tabs
     this.categories.forEach(function (cat) {
       var tab = self._makeTab(cat, toSlug(cat), false);
       tab.addEventListener('click', function () { self._switch(toSlug(cat)); });
@@ -236,7 +234,6 @@
     var html = '';
 
     if (!this.current) {
-      // All — grouped by category
       var self = this;
       this.categories.forEach(function (cat) {
         var items = self.products.filter(function (p) { return p.category === cat; });
@@ -248,12 +245,11 @@
                 '</div></div>';
       });
     } else {
-      // Single category — flat grid
-      var slug = this.current;
+      var slug  = this.current;
       var items = this.products.filter(function (p) { return toSlug(p.category) === slug; });
       if (!items.length) {
         html = '<div class="products-empty"><div class="products-empty-title">No products found</div>' +
-               '<p>Try a different category or <a href="products.html" style="color:#00a99d">view all products</a>.</p></div>';
+               '<p>Try a different category or <a href="products.html" style="color:var(--hardex-green-600)">view all products</a>.</p></div>';
       } else {
         html = '<div class="products-grid">' +
                items.map(this._card.bind(this)).join('') + '</div>';
@@ -266,7 +262,6 @@
   // ── Card template ────────────────────────────────────────────────
   ProductsRenderer.prototype._card = function (p) {
     return '<a href="product-detail.html?id=' + encodeURIComponent(p.id) + '" class="product-card">' +
-      '<span class="product-icon">'         + (p.icon || '🧪') + '</span>' +
       '<div class="product-subcategory">'   + (p.subcategory || '') + '</div>' +
       '<h3 class="product-name">'           + p.name + '</h3>' +
       '<p class="product-desc">'            + (p.shortDesc || '') + '</p>' +
@@ -278,7 +273,6 @@
   // ── Boot ─────────────────────────────────────────────────────────
   function boot() {
     if (typeof window.PRODUCTS === 'undefined' || !window.PRODUCTS.length) {
-      // PRODUCTS not loaded yet — wait a tick and retry once
       setTimeout(function () {
         if (typeof window.PRODUCTS !== 'undefined') new ProductsRenderer();
         else console.warn('[product-cards] window.PRODUCTS not found. Check config/products-data.js is loaded first.');
