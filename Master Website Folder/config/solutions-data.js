@@ -149,6 +149,8 @@ const SOLUTIONS = [
   }
 ];
 
+window.SOLUTIONS = SOLUTIONS;
+
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = { SOLUTIONS };
 }

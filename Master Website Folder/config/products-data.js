@@ -2189,6 +2189,8 @@ const PRODUCTS = [
 // ═══════════════════════════════════════════════════════════════════
 
 // Export for use in other files
+window.PRODUCTS = PRODUCTS;
+
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = { PRODUCTS };
 }

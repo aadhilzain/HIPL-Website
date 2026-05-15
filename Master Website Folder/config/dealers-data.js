@@ -46,6 +46,9 @@ const REGIONS = [
   'Haryana'
 ];
 
+window.DEALERS = DEALERS;
+window.REGIONS = REGIONS;
+
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = { DEALERS, REGIONS };
 }
